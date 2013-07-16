@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/WEB-INF/lib
+END
+log4j-1.2.9.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/WEB-INF/lib/log4j-1.2.9.jar
+END
+ojdbc14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/WEB-INF/lib/ojdbc14.jar
+END
+jdom.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/WEB-INF/lib/jdom.jar
+END
+dwr.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/WEB-INF/lib/dwr.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/WEB-INF/lib/commons-logging.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/WEB-INF/lib/spring.jar
+END

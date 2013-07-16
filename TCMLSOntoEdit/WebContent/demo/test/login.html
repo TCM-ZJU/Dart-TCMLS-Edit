@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>欢迎进入中国中医药临床术语加工平台</title>
+<!--<script type="text/javascript" src="../../script/qooxdoo.js"></script>-->
+<script type="text/javascript" src="../../script/net.js"></script>
+</head>
+
+<body  onload="javascript:document.login.username.focus();">
+<script type="text/javascript">
+var username;
+var href;
+
+function keypp(key_event,frm){
+  if(key_event.keyCode==13){
+//     key_event.keyCode=9;
+	 return user_login(frm);
+  }
+}
+
+function user_login(){
+  var frm = document.all.login;
+  if(frm.username.value=="")
+	{
+		alert("请输入用户名！");
+		frm.username.focus();
+		return false;
+	}
+	if(frm.password.value=="")
+	{
+		alert("请输入密码！");
+		frm.password.focus();
+		return false;
+	}
+	doSubmit();
+}
+
+function doSubmit(){
+	//check
+	var user = document.getElementById("username").value;
+	var pass = document.getElementById("password").value;
+
+	href = window.location.href;
+	var headerLen = new String("http://").length;
+	href = href.substr(headerLen, href.length-headerLen);
+	href = 'http://' + href.substr(0, href.indexOf('/')) + '/TCMCTOntoEdit/';
+
+	if((user != '') && (pass != '')){
+		window.status = "正在登陆中……";
+//		var url = 'http://127.0.0.1:8080/TCMLSOntoEdit/login.jspa?username=' + user + '&password=' + pass;
+		var url = href + 'login.jspa?username=' + user + '&password=' + pass;
+		var loader1 = new net.ContentLoader(url,getSubmit,null,"POST",null);
+	}
+	else
+		alert("请输入完整的用户名和密码");
+}
+	
+function getSubmit(){
+	var text = this.req.responseText;
+    var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+    xmlDoc.loadXML(text);
+/*	var parser = new DOMParser();
+	text = parser.parseFromString(text, "text/xml");*/
+	username = xmlDoc.getElementsByTagName("Username")[0].firstChild.data;
+	var privilege = xmlDoc.getElementsByTagName("Privilege")[0].firstChild.data;
+	//privilege的值越小权限越大，展现不同的页面
+	if(privilege == '-1'){
+		alert("请输入正确的用户名和密码");
+		window.status = "";
+	}	
+	//普通编辑人员
+	else if(privilege == '2'){
+//		var url = 'http://127.0.0.1:8080/TCMLSOntoEdit/demo/test/editor.html';
+		var url = href + 'demo/test/editor.html';
+		window.status = "欢迎进入中国中医药";
+		window.open(url);
+		document.getElementById("username").value = "";
+		document.getElementById("password").value = "";
+	}
+	//审校人员或者管理员
+	else if(privilege == '1'){
+//		var url = 'http://127.0.0.1:8080/TCMLSOntoEdit/demo/test/admin.html';
+		var url = href + 'demo/test/checker.html';
+		window.status = "欢迎进入中国中医药";
+		window.open(url);
+		document.getElementById("username").value = "";
+		document.getElementById("password").value = "";
+	}
+	else if(privilege == '0'){
+//		var url = 'http://127.0.0.1:8080/TCMLSOntoEdit/demo/test/admin.html';
+		var url = href + 'demo/test/admin.html';
+		window.status = "欢迎进入中国中医药";
+		window.open(url);
+		document.getElementById("username").value = "";
+		document.getElementById("password").value = "";
+	}
+	else if(privilege == '4'){
+		var url = href + 'demo/test/browser.html';
+		window.status = "欢迎进入中国中医药";
+		window.open(url);
+		document.getElementById("username").value = "";
+		document.getElementById("password").value = "";
+	}
+	//二次审校员
+	else if(privilege == '5'){
+		var url = href + 'demo/test/doublechecker.html';
+		window.status = "欢迎进入中国中医药";
+		window.open(url);
+		document.getElementById("username").value = "";
+		document.getElementById("password").value = "";		
+	}
+}
+</script>
+<form name="login" method="post" action="">
+<table width="697" height="334" border="0">
+  <tr>
+    <td width="691"><div align="center">
+      <p>用户名：
+          <input name="username" type="text" id="username" tabindex="1" onKeyPress="return keypp(event,this.form)">
+	  </p>
+      <p>密码：
+		  <input name="password" type="password" id="password" tabindex="2" onKeyPress="return keypp(event,this.form)">
+      </p>
+      <p>
+          <input type="button" name="Submit" value="提交" tabindex="3" onClick="user_login()">
+	  </p>
+    </div></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="7"
+   name=""
+   committed-date="2006-09-11T09:44:47.053277Z"
+   url="http://wls.cintcm.com/svn/snomedtcmls/TCMLSOntoEdit/themes/widgets/windows/arrows"
+   last-author="tmy"
+   kind="dir"
+   uuid="debff3c7-281d-0410-adc5-bd274ee7125b"
+   repos="http://wls.cintcm.com/svn/snomedtcmls"
+   revision="12"/>
+<entry
+   committed-rev="7"
+   name="up_small.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="e9e97bab5a4691489f35e6ec9cce906f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.687000Z"/>
+<entry
+   committed-rev="7"
+   name="previous.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="d23a90169273249a3d2d7c4ae190efbb"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.718000Z"/>
+<entry
+   committed-rev="7"
+   name="next.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="ce7d62e54e2e90e741258e6d2479c64f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.750000Z"/>
+<entry
+   committed-rev="7"
+   name="minimize.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="9e2deaa3c87486ffc9c3fe81824449f9"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.765000Z"/>
+<entry
+   committed-rev="7"
+   name="last.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8e8c5129cabe0b25e8d8eb269a2c65c5"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.781000Z"/>
+<entry
+   committed-rev="7"
+   name="Thumbs.db"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="f2c991f2b1ed87dc9d9a10a9259753ee"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-12T01:41:28.000000Z"/>
+<entry
+   committed-rev="7"
+   name="up.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="9b6d8aa9bc3fc840072a42e21821d048"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.828000Z"/>
+<entry
+   committed-rev="7"
+   name="up_tiny.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="eb1dbf95fe1caccc6f1c1f8013a398b0"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.843000Z"/>
+<entry
+   committed-rev="7"
+   name="rewind.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="57e5c9f0ce24197ca40891edb2850a5a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.859000Z"/>
+<entry
+   committed-rev="7"
+   name="right.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="58aa38a653b4024727f123ccf79fd570"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.890000Z"/>
+<entry
+   committed-rev="7"
+   name="down_small.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="f6b2fd6b57149cb40c68e95ba5eee9a5"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.906000Z"/>
+<entry
+   committed-rev="7"
+   name="forward.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="d2420bb161a3ff981bf745a9ba3ee5dd"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.921000Z"/>
+<entry
+   committed-rev="7"
+   name="first.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="2fa48289b2b28ddf92f43c94ed1cbd3f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.953000Z"/>
+<entry
+   committed-rev="7"
+   name="down.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="afdf25a597ccec0da51ccd8223db8de7"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.968000Z"/>
+<entry
+   committed-rev="7"
+   name="left.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="37675700473d72d96fcd0004554659c0"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:27.984000Z"/>
+<entry
+   committed-rev="7"
+   name="down_tiny.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8fd6905b67b6289c9eee1d100d4ef248"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:28.000000Z"/>
+</wc-entries>

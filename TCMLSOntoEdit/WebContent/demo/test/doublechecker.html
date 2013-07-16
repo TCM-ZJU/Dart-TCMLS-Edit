@@ -1,0 +1,3484 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtminsList1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+  <title>TCMCT</title>  
+ <!-- <link type="text/css" rel="stylesheet" href="../demolayout.css"/> -->
+  <script type="text/javascript" src="../../script/qooxdoo.js"></script>
+  <script type="text/javascript" src="../../script/net.js"></script>
+</head>
+<body onload="self.moveTo(0,0);	self.resizeTo(screen.availwidth,screen.availheight);">
+<script type="text/javascript" src="../demolayout.js"></script> 
+<script type="text/javascript">
+	var LISTLEN = 5;
+	var TYPESPECIAL = ["连接词"];
+	var DEFISPECIAL = ["特殊概念", "量词", "环境", "连接词"];
+	var TIMER = 60000 * 10;//60000毫秒为一分钟
+	var cutSource = null; //暂存要移动的类节点
+	var cutId = 0; //暂存要移动的类的id
+
+/*Colored-list-item starts*/
+	// first we create a new appearance called colored-list-item and add it to the current
+    // appearance theme. This appearance is mainly a copy of the list-item appearance.
+    // note the commented difference below in the state function
+    //
+    QxAppearanceManager.getAppearanceThemeObject().registerAppearance("colored-list-item", 
+    {
+      setup : function()
+      {
+        this.bgcolor_selected = new QxColorObject("highlight");
+        this.color_selected   = new QxColorObject("highlighttext");
+      },
+      
+      initial : function(vWidget, vTheme)
+      {
+        return {
+          cursor : QxConst.CORE_DEFAULT,
+          height : QxConst.CORE_AUTO,
+          horizontalChildrenAlign : QxConst.ALIGN_LEFT,
+          verticalChildrenAlign : QxConst.ALIGN_MIDDLE,
+          spacing : 4,
+          paddingTop : 3,
+          paddingRight : 5,
+          paddingBottom : 3,
+          paddingLeft : 5
+        };
+      },
+      
+      state : function(vWidget, vTheme, vStates)
+      {
+        if (vStates.lead)
+        {
+          vWidget.setStyleProperty("MozOutline", QxConst.FOCUS_OUTLINE);
+          vWidget.setStyleProperty("outline", QxConst.FOCUS_OUTLINE);
+        }
+        else
+        {
+          vWidget.removeStyleProperty("MozOutline");
+          vWidget.removeStyleProperty("outline");
+        };
+        
+        return {
+          // in the case vStates.selected is false, the backgroundColor is set to backgroundColorUnselected
+          //
+          backgroundColor : vStates.selected ? this.bgcolor_selected : vWidget.getBackgroundColorUnselected(),
+          color : vStates.selected ? this.color_selected : null
+        };
+      }  
+    });
+
+    // second we create a new class QxColoredListItem which is derived
+    // from QxListItem and has an additional property backgroundColorUnselected
+    // and a changed appearance to "colored-list-item"
+    //
+    function QxColoredListItem(vText, vIcon, vValue) {
+      QxListItem.call(this, vText, vIcon, vValue);
+    };
+    
+    QxColoredListItem.extend(QxListItem, "QxColoredListItem");
+    
+    QxColoredListItem.changeProperty({ name : "appearance", type : QxConst.TYPEOF_STRING, defaultValue : "colored-list-item" });
+    
+    QxColoredListItem.addProperty({ name : "backgroundColorUnselected", type : QxConst.TYPEOF_OBJECT, instance : "QxColor", convert : QxColorCache, allowMultipleArguments : true });
+
+	var color = new QxColor("#A4E9FF");
+/*Colored-list-item ends*/
+
+  	var currentNode;
+  	var action;
+  	var std = "";
+	var user = window.opener.username;
+	var urlHeader = window.opener.href;
+	var href = urlHeader + 'tcmls.jspa';
+	var statistic;
+	var isExisted = false;	//表示该类是否已经添加过
+	
+/************************词条统计************************/
+	function getStatistic(){
+		var strParams = 'type=statistic';  
+		var url = href + '?' + strParams;  
+		var loader1 = new net.ContentLoader(url,setStatistic,null,"POST",null);
+	};
+	function setStatistic(){						
+		var text = this.req.responseText;
+		var parser = new DOMParser();
+		text = parser.parseFromString(text, "text/xml");
+		var list = text.getElementsByTagName("ID");
+		for(var i=0; i<list.length; i++){
+			statistic.setValue("临床术语共收录" + list[0].firstChild.data + "条");
+		}
+	};
+/**********************************************************/
+
+//	window.opener.close();
+	window.opener = null;
+    window.application.main = function()
+    {
+/*    	var href = window.location.href;
+    	var headerLen = new String("http://").length;
+    	href = href.substr(headerLen, href.length-headerLen);
+    	href = 'http://' + href.substr(0, href.indexOf('/')) + '/TCMLSOntoEdit/tcmls.jspa';*/
+ //		var href = 'http://10.214.43.211:8080/TCMLSOntoEdit/demo/test/'
+	  	var d = this.getClientWindow().getClientDocument();
+	  	d.setOverflow("auto");
+
+		//提示窗口
+		var waiting = new QxWindow("数据读取中……");
+//		waiting.setSpace("auto");
+		with(waiting){
+			setShowClose(false);		
+			setModal(true);
+			setShowMaximize(false);
+			setShowMinimize(false);
+			setLeft(250);
+			setTop(200);
+		}
+		d.add(waiting);
+		var aler = new QxButton("", "icons/16/waiting.gif");
+		with(aler){
+			setLocation(4, 4);
+		}
+		waiting.add(aler);
+
+
+		/***********************报表统计***********************/
+		var statisWin;
+		function getStatisWin(lc, ld){
+			statisWin  = new QxWindow("报表统计");
+			with(statisWin){
+				setShowClose(true);		
+				setShowMaximize(false);
+				setShowMinimize(true);
+				setLeft(250);
+				setTop(200);
+			}
+
+			  var lv = new QxListView(ld, lc);
+
+			  lv.setBorder(QxBorderObject.presets.shadow);
+			  lv.setBackgroundColor("white");
+			  lv.setWidth(250);
+			  lv.setHeight(250);
+			  lv.setLocation(20, 10);
+
+			  statisWin.add(lv);
+			  d.add(statisWin);
+		  };
+		/******************************************************/
+
+		//树的操作
+		  function handleDragStart(e) 
+		  {
+			e.addData("QxTreeElement", e.getCurrentTarget());
+			e.addAction("move");
+			e.startDrag();
+//			alert(e.getCurrentTarget().getUserData("ID"));
+		  };
+
+		  function handleDragDrop(e) 
+		  {
+			var vType = e.getDropDataTypes()[0];
+			var vSource = e.getData(vType);
+			var vTarget = e.getCurrentTarget();
+			
+			vSource.getTree().getManager().deselectAll();
+			vTarget.add(vSource);
+			treeAdjust(vTarget.getUserData("ID"), vSource.getUserData("ID"));
+//			alert(vTarget.getUserData("ID"));
+			e.stopPropagation();
+		  }; 
+		  
+		  function supportsDrop(vDragCache) {
+			return !vDragCache.sourceWidget.contains(this);
+		  };
+
+		  function handleDragOver(e)
+		  {
+			var l = e.getTarget().getLabelObject();
+			l.setStyleProperty("textDecoration", "underline");
+		  };
+		
+		  function handleDragOut(e) 
+		  {
+			var l = e.getTarget().getLabelObject();
+			l.removeStyleProperty("textDecoration");
+		  };
+
+	  //类树 增加类
+      var but_clsCreate = new QxButton("创建");
+	  with(but_clsCreate){
+      	setTop(20);
+      	setLeft(20);
+      }
+
+      but_clsCreate.addEventListener("click", function(e)
+      {
+      	if(null == currentNode)
+      		alert("请选择要指定的类");
+/*      	if(currentNode == treeSource)
+      		alert("根目录下不允许创建类");
+      	else{*/
+      		var folder = new QxTreeFolder("default Cls", "icons/16/Class.gif", "icons/16/Class.gif");
+      		folder.setUserData("ID", -1);
+			currentNode.add(folder);
+			treeSource.setSelectedElement(folder);
+			currentNode = folder;
+//		}
+      });
+      d.add(but_clsCreate);
+      
+/*      //类树 删除类
+      var but_clsDelete = new QxButton("删除");
+		with(but_clsDelete){
+      	setTop(20);
+      	setLeft(60);
+      }
+
+      but_clsDelete.addEventListener("click", function(e)
+      {
+      	if(null == currentNode)
+      		alert("请选择要删除的类");
+      	else{
+			if((currentNode.getFirstVisibleChildOfFolder() != null) || (insList.getChildren().length>0))
+				alert("不能删除此类！");
+			else{		
+			//2006-7-17 added by tmy 类树删除确认
+				if(confirm("您确认执行删除操作么？")){
+					var tmp = currentNode.getParent();
+					tmp.remove(currentNode);
+					if(currentNode.getUserData("ID") != null)
+						deleteCls(currentNode.getUserData("ID"));
+					currentNode = null;
+				}
+			}
+      	}
+      });
+      d.add(but_clsDelete);
+	  
+      //类树 剪切类 
+      var but_clsCut = new QxButton("剪切");
+		with(but_clsCut){
+      	setTop(20);
+      	setLeft(100);
+      }
+
+      but_clsCut.addEventListener("click", function(e)
+      {
+      	if(null == currentNode)
+      		alert("请选择要剪切的类");
+      	else{
+			if(confirm("您确认执行剪切操作么？")){
+				cutSource = currentNode;
+				cutId = cutSource.getUserData("ID");
+//					alert(cutId);
+			}
+      	}
+      });
+      d.add(but_clsCut);
+
+      //类树 粘贴类 
+      var but_clsPaste = new QxButton("粘贴");
+		with(but_clsPaste){
+      	setTop(20);
+      	setLeft(140);
+      }
+
+      but_clsPaste.addEventListener("click", function(e)
+      {
+      	if(null == currentNode)
+      		alert("请选择要粘贴的类");
+      	else{	
+			if(confirm("您确认要把类粘贴到这个位置下么？")){
+//				    alert(cutSource.getUserData("ID")+"到"+currentNode.getUserData("ID"));
+//					cutSource.getTree().getManager().deselectAll();
+				var tmp = cutSource.getParent();
+				tmp.remove(cutSource);
+				treeAdjust(currentNode.getUserData("ID"), cutSource.getUserData("ID"));
+				currentNode.add(cutSource);
+			}
+      	}
+      });
+      d.add(but_clsPaste);*/
+
+	   //类树 刷新类 
+      var but_clsRefresh = new QxButton("刷新");
+		with(but_clsRefresh){
+      	setTop(20);
+      	setLeft(180);
+      }
+
+      but_clsRefresh.addEventListener("click", function(e)
+      {
+      	if(null == currentNode)
+      		alert("请选择要刷新的类");
+      	else{
+			if(confirm("您确认执行刷新操作么？")){
+				currentNode.removeAll();
+				var id = currentNode.getUserData("ID");
+//				alert(id);
+//				getSubClses(id, false);
+//				alert("done");
+			}
+      	}
+      });
+      d.add(but_clsRefresh);
+	  
+      var treeSource = new QxTree("中国中医药临床术语集", "icons/16/Class.gif", "icons/16/Class.gif");
+      with(treeSource)
+      {
+        setBackgroundColor(255);
+        setBorder(QxBorderObject.presets.thinInset);
+        setOverflow("auto");
+
+        setHeight(400);
+        setTop(48);
+        setLeft(20);
+        setWidth(200);
+        
+/*        addEventListener("dragdrop", handleDragDrop); 
+        addEventListener("dragover", handleDragOver);
+        addEventListener("dragout", handleDragOut);*/
+
+        setDropDataTypes(["QxTreeElement"]);
+      };
+      d.add(treeSource);
+      treeSource.setUserData("ID", 0);     
+	  treeSource.getManager().addEventListener("changeSelection", function(e) {
+	    currentNode = e.getData().getFirst();
+	  	var id = currentNode.getUserData("ID");
+//	  	alert(id);
+		tCurrentInput.setValue(currentNode._labelObject.getHtml());
+		insList.removeAll();
+		if(insList.length > 0)
+			clearAll();
+		clearInsDetail();
+		if(currentNode instanceof QxTree){
+//			alert("Root");
+			if(currentNode.getFirstVisibleChildOfFolder() == null)
+				getSubclses(id, true);
+		}
+		else{
+//			alert("Cls");
+			if((currentNode.getFirstVisibleChildOfFolder() == null) && (id != null) && (id != -1)) 
+				getSubclses(id, false);
+		}
+		if((id != null) && (id != -1) && (id != 0))
+			getInstances(id);
+		if((currentNode != null) && (currentNode != treeSource)){
+			but_insCreate.setEnabled(true);
+			//but_insDelete.setEnabled(true);
+			but_insBrowse.setEnabled(true);
+			but_submit.setEnabled(true);
+			but_static.setEnabled(true);
+		}	
+      });
+
+	  //Cls editor
+	  var clsEditor = new QxFieldSet("类 编辑");
+      with(clsEditor)
+      {
+        setTop(455);
+        setLeft(20);
+        setWidth(200);
+        setHeight("auto");
+      };
+      d.add(clsEditor);
+      var tCurrentLabel = new QxAtom("目前编辑类: ");
+      with(tCurrentLabel)
+      {
+        setLeft(0);
+        setTop(0);
+      };
+      clsEditor.add(tCurrentLabel);
+      
+      var tCurrentInput = new QxTextField;
+      with(tCurrentInput)
+      {
+        setLeft(0);
+        setRight(0);
+        setTop(20);
+        setReadOnly(false);
+      };
+      clsEditor.add(tCurrentInput);
+	  var but_submit = new QxButton("提交");
+	  with(but_submit){
+      	setTop(40);
+      	setLeft(20);
+      }
+      but_submit.addEventListener("click", function(e)
+      {
+		//增加权限判断
+		var clsName = tCurrentInput.getValue();
+		currentNode.setLabel(clsName);
+		isClsExisted(clsName);
+		if(confirm("您希望创建类 " + clsName + "?")){
+/*			 //特殊字符处理
+			if(clsName.indexOf('%') != -1)
+				clsName = clsName.replace( new RegExp('%', "g") , '%25');
+			if(clsName.indexOf('<') != -1)
+				clsName = clsName.replace( new RegExp('<',"g") , '%26lt;');*/
+
+			if(isExisted == 'true')
+				if(confirm("目前添加的类已经存在，您是否要继续添加？"))
+					setCls(currentNode.getUserData("ID"), clsName);
+				else{
+					alert("您已经放弃了当前的类树操作");
+					var parent = currentNode.getParentFolder();
+					parent.remove(currentNode);
+					currentNode = parent;
+				}
+			else
+				setCls(currentNode.getUserData("ID"), SpecialURLEncode(clsName, false));
+		}
+		else{
+			var parent = currentNode.getParentFolder();
+			parent.remove(currentNode);
+			currentNode = parent;
+		}
+      });
+      clsEditor.add(but_submit);
+	  but_submit.setEnabled(false);
+
+	  /***************统计***************/
+	  var search = new QxComboBox;
+      search.set({ top: 565, left: 20, width: 150 });
+	  d.add(search);
+      var item = new QxListItem('已加工');
+	  search.add(item);
+	  item = new QxListItem('已校验');
+	  search.add(item);	  
+	  item = new QxListItem('按地区');
+	  search.add(item);
+	  item = new QxListItem('按用户');
+	  search.add(item);
+	  var srhbut = new QxButton("搜索");
+	  srhbut.set({ top: 565, left: 180 });
+	  srhbut.addEventListener("click", function(e)
+      {
+		if(search.getSelected() == null)
+			alert("请选择要搜索的类型");
+		else{
+			srhResult.setValue("正在搜索……");
+			var type = search.getSelected().getLabel();
+			if((type == '已加工') || (type == '已校验'))
+				getSearchResult(type);
+			else if(type == '按地区'){
+				getAffiResultTable(type);
+			}
+			else if (type == '按用户'){
+				getUserResultTable(type);
+			}
+		}
+      });
+	  d.add(srhbut);
+	  var result = new QxAtom("搜索结果");
+	  result.set({ top: 600, left: 20 });
+	  d.add(result);
+	  var srhResult = new QxTextField();
+	  srhResult.set({ top: 600 , left: 70, width: 150 });
+	  d.add(srhResult);
+	  /***************统计***************/
+
+	  //Instance列表
+      var insList = new QxList;      
+      insList.set({ top: 48, left: 250, height: 400, width: 150, overflow: "auto" });
+	  insList.getManager().setMultiSelection(false);
+      d.add(insList);
+
+	  //实例列表 增加实例
+      var but_insCreate = new QxButton("创建");
+	  with(but_insCreate){
+      	setTop(20);
+      	setLeft(250);
+      }
+
+      but_insCreate.addEventListener("click", function(e)
+      {
+	  	if(currentNode instanceof QxTree)
+			alert("根目录不允许增加实例");
+		else if(insList.getChildren().length > 0)
+			alert("该节点下只允许创建一个实例");
+		else{
+			enableAll();
+			var item = new QxListItem("default");
+			item.setUserData("ID", ""+(-1));
+			insList.addAtBegin(item);
+			insList.getManager().setSelectedItem(item);
+			clearInsDetail();
+			status.setValue("已加工");
+			tEditorInput.setValue(user);
+			tEditorInput.setReadOnly(true);
+			var date = new Date();
+			tDateInput.setValue(date.getYear() + "/" + (date.getMonth()+1) + "/" + date.getDate() + "/");
+			tDateInput.setReadOnly(true);
+			tCheckerInput.setValue("");
+			tCheckerInput.setReadOnly(false);
+			//新增加的实例只有在编辑完成后点击“提交”后一并保存
+		}
+      });
+      d.add(but_insCreate);
+	  but_insCreate.setEnabled(false);
+      
+      //实例列表 删除实例
+      /*var but_insDelete = new QxButton("删除");
+	  with(but_insDelete){
+      	setTop(20);
+      	setLeft(290);
+      }
+
+      but_insDelete.addEventListener("click", function(e)
+      {
+		if(confirm("您确认执行删除操作么？")){
+			var currentItem = insList.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要删除的实例！");
+			else{
+				insList.remove(currentItem);
+				if(currentItem.getUserData("ID") != null)
+					deleteIns(currentItem.getUserData("ID"), currentNode.getUserData("ID"));
+			}
+		}
+      });
+      d.add(but_insDelete);
+	  but_insDelete.setEnabled(false);*/
+	  
+	  //实例列表 浏览实例
+      var but_insBrowse = new QxButton("类树跟踪");
+	  with(but_insBrowse){
+      	setTop(20);
+      	setLeft(330);
+      }
+
+      but_insBrowse.addEventListener("click", function(e)
+      {
+		var currentItem = insList.getManager().getSelectedItem();
+      	if(null == currentItem)
+      		alert("请选择要跟踪的实例！");
+      	else{
+      		var id = currentItem.getUserData("ID");
+/*			if(tCurrentConceptInput.getValue() != "")
+				clearInsDetail();*/
+//			alert(id);
+			if(id != null)
+				getClsTrack(id);
+/*	        tCurrentConceptInput.setValue(currentItem.getLabel());
+			if(currentItem != null)
+				submit.setEnabled(true);*/
+      	}
+      });
+      d.add(but_insBrowse);
+	  but_insBrowse.setEnabled(false);
+	  
+	  insList.getManager().addEventListener("changeSelection", function(e) {
+		var currentItem = insList.getManager().getSelectedItem();
+		var id = currentItem.getUserData("ID");
+//		var notToSave = confirm("放弃对当前实例的修改？");//焦点离开前要提示是否保存
+		if(tCurrentConceptInput.getValue() != "")
+			clearInsDetail();
+//		alert(id);
+		if((id != null) && (id != "-1"))
+			getInsDetail(id);
+		tCurrentConceptInput.setValue(currentItem.getLabel());
+		if(currentItem != null)
+			submit.setEnabled(true);			
+	  });
+	  
+	  var editStatus = new QxTextField;
+      with(editStatus)
+      {
+        setLeft(250);
+        setTop(500);
+        setWidth(150);
+
+        setReadOnly(false);
+      };
+	  d.add(editStatus);
+	  /***************实例查找******************/
+	  var insSrh = new QxTextField;
+      with(insSrh)
+      {
+        setLeft(250);
+        setTop(465);
+        setWidth(130);
+
+        setReadOnly(false);
+      };
+	  d.add(insSrh);
+
+	  var isFuzzy = new QxComboBox;
+      isFuzzy.set({ top: 465, left: 350, width: 50 });
+	  d.add(isFuzzy);
+      var item = new QxListItem('精确');
+	  isFuzzy.add(item);
+	  item = new QxListItem('模糊');
+	  isFuzzy.add(item); 
+	  isFuzzy.setSelected(new QxListItem('精确')); 
+
+	  var insSrhBtn = new QxButton("搜索");
+	  with(insSrhBtn)
+      {
+        setLeft(390);
+        setTop(460);
+      };
+	  d.add(insSrhBtn);
+	  insSrhBtn.addEventListener("click", function(e)
+      {
+		var ins = insSrh.getValue();
+		if(ins != "")
+			getSrhInstances(SpecialURLEncode(ins, false));
+		else
+			alert("请填写要查找的实例名");
+      });
+/****************************************/	  
+/***************实例统计*****************/
+	  statistic = new QxTextField;
+	  statistic.setValue("统计");
+      with(statistic)
+      {
+        setLeft(250);
+        setTop(535);
+        setWidth(150);
+		setBackgroundColor(new QxColor("#00FF00"));
+        setReadOnly(false);
+      };
+	  d.add(statistic);
+	  var timerStatistic = setInterval("getStatistic()",TIMER);
+/****************************************/	  
+/**************标准表链接****************/	
+    var stdLink = new QxLink("<b>标准表编辑</b>", urlHeader + "demo/test/std.html");    
+    stdLink.setLocation(250, 565);    
+    d.add(stdLink);
+/****************************************/	          
+      var type = new QxList();
+	  with(type){
+		setTop(10);
+		setLeft(20);
+		setWidth(150);
+		setHeight(200);
+		setOverflow("auto");
+	  }
+	  
+	  var rela = new QxList();
+	  with(rela){
+		setTop(10);
+		setLeft(20);
+		setWidth(150);
+		setHeight(200);
+		setOverflow("auto");
+	  }
+	  rela.getManager().setMultiSelection(false);
+	  
+	  var source = new QxList();
+	  with(source){
+		setTop(10);
+		setLeft(20);
+		setWidth(150);
+		setHeight(200);
+		setOverflow("auto");
+	  }
+	  source.getManager().setMultiSelection(false);
+	  	    
+	  //Instance编辑
+	  var commandFrame = new QxFieldSet("InstanceEdit");
+
+      with(commandFrame)
+      {
+        setTop(20);
+        setLeft(450);
+
+        setWidth("auto");
+        setHeight("auto");
+      };
+
+      d.add(commandFrame);
+            
+	  //概念词
+      var tCurrentConceptLabel = new QxAtom("概念词");
+
+      with(tCurrentConceptLabel)
+      {
+        setLeft(0);
+        setTop(0);
+      };
+
+      commandFrame.add(tCurrentConceptLabel);
+
+      var tCurrentConceptInput = new QxTextField;
+
+      with(tCurrentConceptInput)
+      {
+        setLeft(60);
+        setRight(0);
+        setTop(0);
+
+        setReadOnly(false);
+      };
+	  commandFrame.add(tCurrentConceptInput);
+
+	  var testBtn = new QxButton("检测重名");
+ 	  with(testBtn)
+	  {
+		setRight(0);
+		setTop(0);
+	  };
+	  commandFrame.add(testBtn);
+	  testBtn.addEventListener("click", function(e)
+      {
+		isInstanceExist(tCurrentConceptInput.getValue());
+		if(insList.getChildren().length > 0)
+			if(confirm("已存在同名实例，是否要创建该实例？")){
+				insList.remove(insList.getFirstChild());
+				createDupInstance(currentNode.getUserData("ID"), dupInsID);
+				alert("已经将存在的实例挂接到当前类下，请点击进一步编辑");
+			}
+      });
+	
+	  var testBtn = new QxButton("检测重名");
+	  with(testBtn)
+	  {
+		setRight(0);
+		setTop(0);
+	  };
+	  commandFrame.add(testBtn);
+	  testBtn.addEventListener("click", function(e)
+      {
+		isInstanceExist(tCurrentConceptInput.getValue());
+		if(dupInsID != 0)
+			if(confirm("已存在同名实例，是否要创建该实例？")){
+				insList.remove(insList.getFirstChild());
+				createDupInstance(currentNode.getUserData("ID"), dupInsID);
+				alert("已经将存在的实例挂接到当前类下，请点击进一步编辑");
+			}
+		else
+			alert("无同名实例存在，请继续编辑");
+      });
+
+	  //编辑名称
+	  var tEditorLabel = new QxAtom("编辑名称");
+
+      with(tEditorLabel)
+      {
+        setLeft(0);
+        setTop(30);
+      };
+
+      commandFrame.add(tEditorLabel);
+
+      var tEditorInput = new QxTextField;
+
+      with(tEditorInput)
+      {
+        setLeft(60);
+ //       setRight(0);
+        setTop(30);	
+		setWidth(200);
+        setReadOnly(true);
+      };
+
+      commandFrame.add(tEditorInput);	
+
+	  //校验员名称
+	  var tCheckerLabel = new QxAtom("校验员名称");
+
+      with(tCheckerLabel)
+      {
+        setLeft(280);
+        setTop(30);
+      };
+
+      commandFrame.add(tCheckerLabel);
+
+      var tCheckerInput = new QxTextField;
+
+      with(tCheckerInput)
+      {
+        setLeft(350);
+        setRight(0);
+        setTop(30);
+        setReadOnly(false);
+      };
+
+      commandFrame.add(tCheckerInput);  
+	  
+	  //词表加工时间
+      var tDateLabel = new QxAtom("词表加<br>工时间");
+
+      with(tDateLabel)
+      {
+        setLeft(0);
+        setTop(60);
+      };
+
+      commandFrame.add(tDateLabel);
+
+      var tDateInput = new QxTextField;
+
+      with(tDateInput)
+      {
+        setLeft(60);
+        setRight(0);
+        setTop(60);
+        setReadOnly(true);
+      };
+	  commandFrame.add(tDateInput);
+
+      //标准表选择窗口
+	  var  stdEditWin = new QxWindow("标准表", "icons/16/editor.png");
+	  function getstdEditWin(source, destList){
+		  with(stdEditWin) {
+			setWidth(200);
+			setTop(100);
+			setHeight(300);
+			setLeft(300);
+			setResizeable(false);
+
+			var btnOK = new QxButton("确定", "icons/16/button-ok.png");
+			var btnCancel = new QxButton("取消", "icons/16/button-cancel.png");
+			var btnOrder = new QxButton("排序", "icons/16/wizard.png");
+
+			btnOK.set({ bottom : 10, right : 10 });
+			btnCancel.set({ bottom : 10, left : 10 });
+			btnOrder.set({ bottom : 10, left : 65 });
+
+			btnCancel.addEventListener("execute", function(e) {
+			  stdEditWin.close();
+			});
+			btnOK.addEventListener("execute", function(e) {
+			  var list = source.getManager().getSelectedItems();
+			  for(var i=0; i<list.length; i++){
+				  var tmpItem = list[i];
+//				  var newItem = new QxListItem(tmpItem.getLabel()/*, "icons/16/Instance.gif"*/);
+				  var newItem = new QxListItem(tmpItem.getLabel());
+				  newItem.setUserData("ID", tmpItem.getUserData("ID"));
+				  if(destList instanceof QxComboBox){
+					  if(!destList.getList().findString(newItem.getLabel())){
+						  destList.getList().addAtBegin(newItem);
+						  destList.setSelected(newItem);
+						  if(destList.getList().getChildren().length > LISTLEN)
+							destList.getList().remove(destList.getList().getLastVisibleChild());
+					  }
+				  }
+				  else{
+					  if(!destList.findString(newItem.getLabel())){
+						  destList.add(newItem);
+				      }
+				  }
+			  }
+			  stdEditWin.close();
+			});
+			btnOrder.addEventListener("execute", function(e) {	
+				source.sortItemsByString();
+			});
+			add(btnOK, btnCancel, btnOrder);
+		  }
+		  d.add(stdEditWin);
+		  stdEditWin.open();
+	  };
+
+	  //属性值对应
+      var tSmtTypeLabel = new QxAtom("属性值对应");
+
+      with(tSmtTypeLabel)
+      {
+        setLeft(270);//0
+        setTop(370);//110
+      };
+
+	  commandFrame.add(tSmtTypeLabel);
+
+	  var typeFrame = new QxFieldSet("Semantic Type");
+      with(typeFrame)
+      {
+        setLeft(330);//60
+        setTop(350);//90
+
+        setWidth("auto");
+        setHeight("auto");
+      };
+      commandFrame.add(typeFrame);
+
+	  var typeList = new QxList();
+	  with(typeList){
+		setTop(30);
+		setLeft(5);
+		setWidth(150);
+		setHeight(60);
+		setOverflow("auto");
+	  }
+	  typeFrame.add(typeList);
+
+      typeList.getManager().setMultiSelection(false);
+
+	  //语义类型列表 增加实例
+      var but_typeCreate = new QxButton("添加");
+	  with(but_typeCreate){
+      	setTop(0);
+      	setLeft(40);
+      }
+      but_typeCreate.addEventListener("click", function(e)
+      {
+      	stdEditWin.setCaption("属性值对应");
+      	if(std != null){
+ //     		alert(std);
+      		if(std == 'rela'){
+      			stdEditWin.remove(rela);
+      			stdEditWin.add(type);
+	      		std = 'type';      	
+	      	}
+      		else if(std == 'source'){
+      			stdEditWin.remove(source);
+      			stdEditWin.add(type);
+	      		std = 'type';      	
+	      	}
+	      	else if(std == ''){
+	      		stdEditWin.add(type);
+	      		std = 'type';
+	      	}
+      	}
+		getstdEditWin(type, typeList);
+		getTypes();
+      });
+      typeFrame.add(but_typeCreate);
+      
+      //语义类型列表 删除实例
+      var but_typeDelete = new QxButton("删除");
+	  with(but_typeDelete){
+      	setTop(0);
+      	setLeft(85);
+      }
+      but_typeDelete.addEventListener("click", function(e)
+      {
+		var currentItem = typeList.getManager().getSelectedItem();
+      	if(null == currentItem)
+      		alert("请选择要删除的属性值对应");
+      	else{
+      		typeList.remove(currentItem);
+      	}
+      });
+      typeFrame.add(but_typeDelete);
+
+	  //语义类型列表 浏览实例
+	  var but_typeBrowse = new QxButton("浏览");
+	  with(but_typeBrowse){
+      	setTop(0);
+      	setLeft(130);
+      }
+      but_typeBrowse.addEventListener("click", function(e)
+      {
+		var currentItem = typeList.getManager().getSelectedItem();
+      	if(null == currentItem)
+      		alert("请选择要浏览的属性值对应!");
+      	else{
+			alert(currentItem.getUserData("ID"));
+      	}
+      });
+      typeFrame.add(but_typeBrowse);
+
+	  //概念定义
+      var tDefLabel = new QxAtom("概念定义");
+
+      with(tDefLabel)
+      {
+        setLeft(270);//0
+        setTop(110);//240
+      };
+
+	  commandFrame.add(tDefLabel);
+
+	  var defFrame = new QxFieldSet("Definition");
+      with(defFrame)
+      {
+        setLeft(330);//60
+        setTop(90);//220
+
+        setWidth("auto");
+        setHeight("auto");
+      };
+      commandFrame.add(defFrame);
+
+	  var defList = new QxList();
+	  with(defList){
+		setTop(30);
+		setLeft(5);
+		setWidth(150);
+		setHeight(180);//60
+		setOverflow("auto");
+	  }
+	  defFrame.add(defList);
+	  defList.getManager().setMultiSelection(false);
+	  
+	  //概念定义编辑窗口
+	  var btnDefOK;
+	  var  defEditWin = new QxWindow("Definition", "icons/16/editor.png");
+      with(defEditWin) {
+        setSpace(300, 400, 100, 300);
+        
+        var defLabel = new QxAtom('定义概念');
+        with(defLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:10,left:10,width:'20%'});
+        };
+        add(defLabel);
+
+        var def = new QxTextArea();
+        with (def) {
+          set({top:10,right:10,width:'70%'})
+		  setHeight(80);
+        }
+        add(def);
+		
+		//工具书列表 增加实例
+        var but_bookCreate = new QxButton("添加");
+		with(but_bookCreate){
+			setTop(100);
+			setLeft(150);
+		}
+		but_bookCreate.addEventListener("click", function(e)
+		{	
+			stdEditWin.setCaption("工具书");
+			if(std != null){
+	//      		alert(std);
+	      		if(std == 'rela'){
+	      			stdEditWin.remove(rela);
+	      			stdEditWin.add(source);
+		      		std = 'source';      	
+		      	}
+	      		else if(std == 'type'){
+	      			stdEditWin.remove(type);
+	      			stdEditWin.add(source);
+		      		std = 'source';      	
+		      	}
+		      	else if(std == ''){
+		      		stdEditWin.add(type);
+		      		std = 'type';
+		      	}
+	      	}
+//			stdEditWin.add(source);
+			getstdEditWin(source, defSource);
+			getBooks();
+		});
+		add(but_bookCreate);
+		  
+		//工具书列表 删除实例
+		var but_bookDelete = new QxButton("删除");
+		with(but_bookDelete){
+			setTop(100);
+			setLeft(195);
+		}
+		but_bookDelete.addEventListener("click", function(e)
+		{
+			var currentItem = defSource.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要删除的工具书");
+			else{
+				defSource.remove(currentItem);
+				var currentDef = defList.getManager().getSelectedItem();
+				if(currentDef != null)
+					currentDef.setUserData("Source", null);
+			}
+		});
+		add(but_bookDelete);
+
+		//工具书列表 浏览实例
+		var but_bookBrowse = new QxButton("浏览");
+		with(but_bookBrowse){
+			setTop(100);
+			setLeft(240);
+		}
+		but_bookBrowse.addEventListener("click", function(e)
+		{
+			var currentItem = defSource.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要浏览的工具书!");
+			else{
+				alert(currentItem.getUserData("ID"));
+			}
+		});
+		add(but_bookBrowse);
+
+        var sourceLabel = new QxAtom('概念定义与来源');
+        with(sourceLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:130,left:10,width:'20%'});
+        };
+        add(sourceLabel);
+
+        var defSource = new QxComboBox();
+        with (defSource) {
+          set({top:130,right:10,width:'70%'})
+        }
+        add(defSource);
+        /*************工具书查找***************/       
+        var srcSrhLabel = new QxAtom('概念定义来源查找');
+        with(srcSrhLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:170,left:60,width:60});
+        };
+        add(srcSrhLabel);
+        
+        var defSrcSrh = new QxTextField();
+        with (defSrcSrh) {
+        	set({top:170,left:140,width:150});
+        };
+        add(defSrcSrh);
+        
+        var srcSrh = new QxButton("查找");        
+        with (srcSrh) {
+        	set({top:170,left:310});
+        };
+        add(srcSrh);        
+        
+        srcSrh.addEventListener("execute", function(e) {
+        	var bookname = defSrcSrh.getValue();
+			findBook(defSource, bookname);
+        });
+		/***********************************/
+
+		var btnDefOK = new QxButton("确认", "icons/16/button-ok.png");
+        var btnCancel = new QxButton("取消", "icons/16/button-cancel.png");
+
+        btnDefOK.set({ bottom : 10, right : 10 });
+        btnCancel.set({ bottom : 10, left : 10 });
+
+        btnCancel.addEventListener("execute", function(e) {
+          defEditWin.close();
+        });
+        btnDefOK.addEventListener("execute", function(e) {
+		  var currentItem = defList.getManager().getSelectedItem();
+		  
+		  var definition = def.getValue();
+		  var sourceItem = null;
+		  sourceItem = defSource.getSelected();
+		 		   
+		  if((definition == null) || (definition == "") || (sourceItem == null))
+		  	alert("信息不全");
+		  else{		  			  	  
+	          but_defCreate.setEnabled(false);
+	          but_defDelete.setEnabled(false);
+	          but_defBrowse.setEnabled(false);
+			  submit.setEnabled(false);
+			  defEditWin.close();	
+	          
+			  if(action == "create"){
+				  //新建实例没有id
+	//			  var item = new QxListItem(definition/*, "icons/16/Instance.gif"*/);
+	//			  var sourceItem = (defSource.getChildren())[0];
+				  var item = new QxColoredListItem(definition/*, "icons/16/Instance.gif"*/);
+				  if((defList != null) && (defList.getChildren().length%2 == 0))
+					  item.setBackgroundColorUnselected(color);
+				  item.setUserData("source", sourceItem);
+				  item.setUserData("ID", ""+(-1));
+				  defList.add(item);
+				  defList.getManager().setSelectedItem(item);
+			  }
+			  else{
+				  currentItem.setLabel(definition);
+				  currentItem.setUserData("source", sourceItem);
+			  }	
+		  
+			  var sourceID = "";
+			  if(sourceItem != null)
+			  	sourceID = sourceItem.getUserData("ID");
+	//		  var sourceID = (defSource.getChildren())[0].getUserData("ID");
+	/*		  //特殊字符处理
+			  if(definition.indexOf('%') != -1)
+			    definition = definition.replace( new RegExp('%', "g") , '%25');
+			  if(definition.indexOf('<') != -1)
+				definition = definition.replace( new RegExp('<',"g") , '%26lt;');*/
+			  var text = "<TCMLS><Definition>"+SpecialURLEncode(definition, true)+"</Definition><DefiSource>"+sourceID+"</DefiSource></TCMLS>";
+			  
+			  var defID;
+			  if(action == "create")
+			  	defID = -1;
+			  else			
+				defID = currentItem.getUserData("ID");
+//			  alert(text+defID);
+			  defIns(defID, text);
+		  }
+        });
+
+		add(btnDefOK, btnCancel);
+	  }
+	  d.add(defEditWin);	
+
+	  //概念定义列表 增加实例
+      var but_defCreate = new QxButton("创建");
+	  with(but_defCreate){
+      	setTop(0);
+      	setLeft(40);
+      }
+      but_defCreate.addEventListener("click", function(e)
+      {
+		def.setValue("");
+		defSrcSrh.setValue("");
+		defSource.setSelected(defSource.getList().getFirstChild());
+		defEditWin.open();
+		action = "create";
+      });
+      defFrame.add(but_defCreate);
+      
+      //概念定义列表 删除实例
+      var but_defDelete = new QxButton("删除");
+	  with(but_defDelete){
+      	setTop(0);
+      	setLeft(85);
+      }
+      but_defDelete.addEventListener("click", function(e)
+      {
+		var currentItem = defList.getManager().getSelectedItem();
+      	if(null == currentItem)
+      		alert("请选择要删除的概念定义！");
+      	else{
+ //     		defDelete(currentItem.getUserData("ID"));
+      		defList.remove(currentItem);
+      	}
+      });
+      defFrame.add(but_defDelete);
+
+	  //概念定义列表 浏览实例
+      var but_defBrowse = new QxButton("浏览");
+	  with(but_defBrowse){
+      	setTop(0);
+      	setLeft(130);
+      }
+      but_defBrowse.addEventListener("click", function(e)
+      {
+		var currentItem = defList.getManager().getSelectedItem();
+		if(null == currentItem)
+			alert("请选择要浏览的概念定义！");
+		else{
+			//alert(currentItem.getUserData("ID"));
+	//		def.setValue(currentItem.getLabel());
+	//		defSource.add(currentItem.getUserData("source"));
+	//		alert(currentItem.getUserData("ID"));
+			getDefDetail(currentItem.getUserData("ID"));
+			action = "modify";
+		}
+      });
+      defFrame.add(but_defBrowse);
+
+	  //概念释义编辑窗口
+	  var btnExpOK;
+	  var  expEditWin = new QxWindow("Explanation", "icons/16/editor.png");
+      with(expEditWin) {
+        setSpace(300, 400, 100, 300);
+
+        var expLabel = new QxAtom('释义概念');
+        with(expLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:10,left:10,width:'20%'});
+        };
+        add(expLabel);
+
+        var exp = new QxTextArea();
+        with (exp) {
+          set({top:10,right:10,width:'70%'})
+		  setHeight(80);
+        }
+        add(exp);
+
+		//工具书列表 增加实例
+        var but_bookCreate = new QxButton("添加");
+		with(but_bookCreate){
+			setTop(100);
+			setLeft(150);
+		}
+		but_bookCreate.addEventListener("click", function(e)
+		{
+			stdEditWin.setCaption("工具书");
+			if(std != null){
+//	      		alert(std);
+	      		if(std == 'rela'){
+	      			stdEditWin.remove(rela);
+	      			stdEditWin.add(source);
+		      		std = 'source';      	
+		      	}
+	      		else if(std == 'type'){
+	      			stdEditWin.remove(type);
+	      			stdEditWin.add(source);
+		      		std = 'source';      	
+		      	}
+		      	else if(std == ''){
+		      		stdEditWin.add(type);
+		      		std = 'type';
+		      	}
+	      	}
+//			stdEditWin.add(source);
+			getstdEditWin(source, expSource);
+			getBooks();
+		});
+		add(but_bookCreate);
+		  
+		//工具书列表 删除实例
+		var but_bookDelete = new QxButton("删除");
+		with(but_bookDelete){
+			setTop(100);
+			setLeft(195);
+		}
+		but_bookDelete.addEventListener("click", function(e)
+		{
+			var currentItem = expSource.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要删除的工具书");
+			else{
+				expSource.remove(currentItem);
+				var currentExp = expList.getManager().getSelectedItem();
+				if(currentExp != null)
+					currentExp.setUserData("Source", null);
+			}
+		});
+		add(but_bookDelete);
+
+		//工具书列表 浏览实例
+		var but_bookBrowse = new QxButton("浏览");
+		with(but_bookBrowse){
+			setTop(100);
+			setLeft(240);
+		}
+		but_bookBrowse.addEventListener("click", function(e)
+		{
+			var currentItem = expSource.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要浏览的工具书!");
+			else{
+				alert(currentItem.getUserData("ID"));
+			}
+		});
+		add(but_bookBrowse);
+
+        var sourceLabel = new QxAtom('概念释义与来源');
+        with(sourceLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:130,left:10,width:'20%'});
+        };
+        add(sourceLabel);
+
+        var expSource = new QxComboBox();
+        with (expSource) {
+          set({top:130,right:10,width:'70%'})
+        }
+        add(expSource);
+		
+		/*************工具书查找***************/       
+        var srcSrhLabel = new QxAtom('概念释义来源查找');
+        with(srcSrhLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:170,left:60,width:60});
+        };
+        add(srcSrhLabel);
+        
+        var expSrcSrh = new QxTextField();
+        with (expSrcSrh) {
+        	set({top:170,left:140,width:150});
+        };
+        add(expSrcSrh);
+        
+        var srcSrh = new QxButton("查找");        
+        with (srcSrh) {
+        	set({top:170,left:310});
+        };
+        add(srcSrh);        
+        
+        srcSrh.addEventListener("execute", function(e) {
+        	var bookname = expSrcSrh.getValue();
+			findBook(expSource, bookname);
+        });
+		/***********************************/
+
+        var btnExpOK = new QxButton("确认", "icons/16/button-ok.png");
+        var btnCancel = new QxButton("取消", "icons/16/button-cancel.png");
+
+        btnExpOK.set({ bottom : 10, right : 10 });
+        btnCancel.set({ bottom : 10, left : 10 });
+
+        btnCancel.addEventListener("execute", function(e) {
+          expEditWin.close();
+        });
+        btnExpOK.addEventListener("execute", function(e) {
+		  var currentItem = expList.getManager().getSelectedItem();
+		  
+		  var explanation = exp.getValue();		  
+		  var sourceItem = null;
+		  sourceItem = expSource.getSelected();
+		  
+		  if((explanation == null) || (explanation == '') || (sourceItem == null))
+		  	alert("信息不全");
+		  else{		  	  
+	          but_expCreate.setEnabled(false);
+			  but_expDelete.setEnabled(false);
+			  but_expBrowse.setEnabled(false);
+			  submit.setEnabled(false);
+          	  expEditWin.close();
+
+		  	  if(action == "create"){
+				  //新建实例没有id
+//				  var item = new QxListItem(explanation/*, "icons/16/Instance.gif"*/);
+				  var item = new QxColoredListItem(explanation/*, "icons/16/Instance.gif"*/);
+				  if((expList != null) && (expList.getChildren().length%2 == 0))
+					  item.setBackgroundColorUnselected(color);
+				  item.setUserData("ID", ""+(-1));
+				  item.setUserData("source", sourceItem);
+				  expList.add(item);
+				  expList.getManager().setSelectedItem(item);
+			  }
+			  else{
+				  currentItem.setLabel(exp.getValue());
+				  currentItem.setUserData("source", (expSource.getChildren())[0]);
+			  }
+			  
+			  var sourceID = "";
+			  if(sourceItem != null)
+			  	sourceID = sourceItem.getUserData("ID");
+			  var text = "<TCMLS><Explanation>"+SpecialURLEncode(explanation, true)+"</Explanation><DefiSource>"+sourceID+"</DefiSource></TCMLS>";
+			  
+			  var expID;
+			  if(action == "create")		  
+				expID = -1;
+			  else
+				expID = currentItem.getUserData("ID");
+//			  alert(text);
+			  expIns(expID, text);
+		  }
+        });
+
+		add(btnExpOK, btnCancel);
+	  }
+	  d.add(expEditWin);	
+
+	  //概念释义
+      var tExpLabel = new QxAtom("概念释义");
+
+      with(tExpLabel)
+      {
+        setLeft(0);
+        setTop(370);
+      };
+
+	  commandFrame.add(tExpLabel);
+
+	  var expFrame = new QxFieldSet("Explanation");
+      with(expFrame)
+      {
+        setTop(350);
+        setLeft(60);
+
+        setWidth("auto");
+        setHeight("auto");
+      };
+      commandFrame.add(expFrame);
+
+	  var expList = new QxList();
+	  with(expList){
+		setTop(30);
+		setLeft(5);
+		setWidth(150);
+		setHeight(60);
+		setOverflow("auto");
+	  }
+	  expFrame.add(expList);
+
+	  //概念释义列表 增加实例
+      var but_expCreate = new QxButton("创建");
+	  with(but_expCreate){
+      	setTop(0);
+      	setLeft(40);
+      }
+      but_expCreate.addEventListener("click", function(e)
+      {      	
+		exp.setValue("");
+		expSrcSrh.setValue("");
+		expSource.setSelected(expSource.getList().getFirstChild());
+		expEditWin.open();
+		action = "create";
+      });
+      expFrame.add(but_expCreate);
+      
+      //概念释义列表 删除实例
+      var but_expDelete = new QxButton("删除");
+	  with(but_expDelete){
+      	setTop(0);
+      	setLeft(85);
+      }
+      but_expDelete.addEventListener("click", function(e)
+      {
+		currentItem = expList.getManager().getSelectedItem();
+      	if(null == currentItem)
+      		alert("请选择要删除的概念释义实例!");
+      	else{
+//      		expDelete(currentItem.getUserData("ID"));
+      		expList.remove(currentItem);
+      	}
+      });
+      expFrame.add(but_expDelete);
+
+	  //概念释义列表 浏览实例
+      var but_expBrowse = new QxButton("浏览");
+	  with(but_expBrowse){
+      	setTop(0);
+      	setLeft(130);
+      }
+      but_expBrowse.addEventListener("click", function(e)
+      {
+		currentItem = expList.getManager().getSelectedItem();
+		if(null == currentItem)
+			alert("请选择要浏览的概念释义");
+		else{
+	//		alert(currentItem.getUserData("ID"));
+/*			exp.setValue(currentItem.getLabel());
+			expSource.add(currentItem.getUserData("source"));*/
+			getExpDetail(currentItem.getUserData("ID"));
+		}
+		action = "modify";
+      });
+      expFrame.add(but_expBrowse);
+
+	  //各种相关概念名词编辑窗口
+	  var btnCeptsOK;
+	  var  ceptsEditWin = new QxWindow("Related Concepts", "icons/16/editor.png");
+      with(ceptsEditWin) {
+        setSpace(300, 400, 100, 300);
+		setHeight(380);
+
+        var ceptsLabel = new QxAtom('相关概念名词');
+        with(ceptsLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:10,left:10,width:'20%'});
+        };
+        add(ceptsLabel);
+
+        var cepts = new QxTextArea();
+        with (cepts) {
+          set({top:10,right:10,width:'70%'})
+        }
+        add(cepts);
+
+		//语义关系列表 增加实例
+		var but_relaCreate = new QxButton("添加");
+		with(but_relaCreate){
+			setTop(50);
+			setLeft(150);
+		}
+		but_relaCreate.addEventListener("click", function(e)
+		{
+			stdEditWin.setCaption("语义关系");
+			if(std != null){
+//	      		alert(std);
+	      		if(std == 'type'){
+	      			stdEditWin.remove(type);
+	      			stdEditWin.add(rela);
+		      		std = 'rela';      	
+		      	}
+	      		else if(std == 'source'){
+	      			stdEditWin.remove(source);
+	      			stdEditWin.add(rela);
+		      		std = 'rela';      	
+		      	}
+		      	else if(std == ''){
+		      		stdEditWin.add(type);
+		      		std = 'type';
+		      	}
+	      	}
+//			stdEditWin.add(rela);
+			getstdEditWin(rela, relaList);
+			getRelas();
+		});
+		add(but_relaCreate);
+		  
+		//语义关系列表 删除实例
+		var but_relaDelete = new QxButton("删除");
+		with(but_relaDelete){
+			setTop(50);
+			setLeft(195);
+		}
+		but_relaDelete.addEventListener("click", function(e)
+		{
+			var currentItem = relaList.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要删除的属性值对应");
+			else{
+				relaList.remove(currentItem);
+			}
+		});
+		add(but_relaDelete);
+
+		//语义关系列表 浏览实例
+		var but_relaBrowse = new QxButton("浏览");
+		with(but_relaBrowse){
+			setTop(50);
+			setLeft(240);
+		}
+		but_relaBrowse.addEventListener("click", function(e)
+		{
+			var currentItem = relaList.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要浏览的属性值对应!");
+			else{
+				alert(currentItem.getUserData("ID"));
+			}
+		});
+		add(but_relaBrowse);
+
+		var relaLabel = new QxAtom('语义关系');
+        with(relaLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:90,left:10,width:'20%'});
+        };
+        add(relaLabel);
+
+        var relaList = new QxComboBox();
+        with (relaList) {
+          set({top:90,right:10,width:'70%'})
+        }
+        add(relaList);
+
+		var descriptLabel = new QxAtom('关联描述');
+        with(descriptLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:150,left:10,width:'20%'});
+        };
+        add(descriptLabel);
+
+        var descript = new QxTextArea();
+        with (descript) {
+          set({top:150,right:10,width:'70%'})
+        }
+        add(descript);
+		
+		//工具书列表 增加实例
+        var but_bookCreate = new QxButton("添加");
+		with(but_bookCreate){
+			setTop(200);
+			setLeft(150);
+		}
+		but_bookCreate.addEventListener("click", function(e)
+		{
+			stdEditWin.setCaption("工具书");
+			if(std != null){
+//	      		alert(std);
+	      		if(std == 'rela'){
+	      			stdEditWin.remove(rela);
+	      			stdEditWin.add(source);
+		      		std = 'source';      	
+		      	}
+	      		else if(std == 'type'){
+	      			stdEditWin.remove(type);
+	      			stdEditWin.add(source);
+		      		std = 'source';      	
+		      	}
+		      	else if(std == ''){
+		      		stdEditWin.add(type);
+		      		std = 'type';
+		      	}
+	      	}
+//			stdEditWin.add(source);
+			getstdEditWin(source, relaSource);
+			getBooks();
+		});
+		add(but_bookCreate);
+		  
+		//工具书列表 删除实例
+		var but_bookDelete = new QxButton("删除");
+		with(but_bookDelete){
+			setTop(200);
+			setLeft(195);
+		}
+		but_bookDelete.addEventListener("click", function(e)
+		{
+			var currentItem = relaSource.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要删除的工具书");
+			else{
+				relaSource.remove(currentItem);
+				var currentConcept = ceptsList.getManager().getSelectedItem();
+				if(currentConcept != null)
+					currentConcept.setUserData("Source", null);
+			}
+		});
+		add(but_bookDelete);
+
+		//工具书列表 浏览实例
+		var but_bookBrowse = new QxButton("浏览");
+		with(but_bookBrowse){
+			setTop(200);
+			setLeft(240);
+		}
+		but_bookBrowse.addEventListener("click", function(e)
+		{
+			var currentItem = relaSource.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要浏览的工具书!");
+			else{
+				alert(currentItem.getUserData("ID"));
+			}
+		});
+		add(but_bookBrowse);
+
+        var sourceLabel = new QxAtom('语义关系<br>设计来源');
+        with(sourceLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:240,left:10,width:'20%'});
+        };
+        add(sourceLabel);
+
+        var relaSource = new QxComboBox();
+        with (relaSource) {
+          set({top:240,right:10,width:'70%'})
+        }
+        add(relaSource);
+		
+		/*************工具书查找***************/       
+        var srcSrhLabel = new QxAtom('相关概念词<br>来源查找');
+        with(srcSrhLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:280,left:60,width:60});
+        };
+        add(srcSrhLabel);
+        
+        var ceptsSrcSrh = new QxTextField();
+        with (ceptsSrcSrh) {
+        	set({top:280,left:140,width:150});
+        };
+        add(ceptsSrcSrh);
+        
+        var srcSrh = new QxButton("查找");        
+        with (srcSrh) {
+        	set({top:280,left:310});
+        };
+        add(srcSrh);        
+        
+        srcSrh.addEventListener("execute", function(e) {
+        	var bookname = ceptsSrcSrh.getValue();
+			findBook(relaSource, bookname);
+        });
+		/***********************************/
+		
+        var btnCeptsOK = new QxButton("确认", "icons/16/button-ok.png");
+        var btnCancel = new QxButton("取消", "icons/16/button-cancel.png");
+		var btnNavi = new QxButton("跳转", "icons/16/wizard.png");
+
+        btnCeptsOK.set({ bottom : 10, right : 10 });
+        btnCancel.set({ bottom : 10, left : 10 });
+		btnNavi.set({ bottom : 10, left : 150});
+	
+		btnNavi.addEventListener("execute", function(e) {
+			getNaviedConcept(cepts.getValue());
+			ceptsEditWin.close();
+		});
+        btnCancel.addEventListener("execute", function(e) {
+          ceptsEditWin.close();
+        });
+        btnCeptsOK.addEventListener("execute", function(e) {
+		  var currentItem = ceptsList.getManager().getSelectedItem();
+		  
+		  var concept = cepts.getValue();
+		  var sourceItem = null;
+		  sourceItem = relaSource.getSelected();
+		  var relaItem = null;
+		  relaItem = relaList.getSelected();
+		  var des = descript.getValue();
+		  		  
+		  if((concept == null) || (concept == '') || (sourceItem == null) || (relaItem == null) || (des == '') || (des == null)){
+		  	alert("信息不全");
+		  }
+		  else{         
+	          but_ceptsCreate.setEnabled(false);
+			  but_ceptsDelete.setEnabled(false);
+			  but_ceptsBrowse.setEnabled(false);
+			  submit.setEnabled(false);
+          	  ceptsEditWin.close(); 
+			  if(action == "create"){
+//				  var item = new QxListItem(concept/*, "icons/16/Instance.gif"*/);
+				  var item = new QxColoredListItem(concept/*, "icons/16/Instance.gif"*/);
+				  if((ceptsList != null) && (ceptsList.getChildren().length%2 == 0))
+					  item.setBackgroundColorUnselected(color);
+				  item.setUserData("ID", ""+(-1));
+				  item.setUserData("Source", sourceItem);
+				  item.setUserData("Rela", relaItem);
+				  item.setUserData("Descript", des);
+				  ceptsList.add(item);
+				  ceptsList.getManager().setSelectedItem(item);
+			  }
+			  else{
+				currentItem.setLabel(concept);
+				currentItem.setUserData("Source", sourceItem);
+				currentItem.setUserData("Rela", relaItem);
+				currentItem.setUserData("Descript", des);
+			  }
+			  var relaID = "";
+			  if(relaItem != null)
+			  	relaID = relaItem.getUserData("ID");
+			  var sourceID = "";
+			  if(sourceItem != null)
+			  	sourceID = sourceItem.getUserData("ID");
+			  var text = "<TCMLS><RelatedConcept>"+SpecialURLEncode(concept, true)+"</RelatedConcept><SemanticSource>"+sourceID+"</SemanticSource><SemanticRela>"+relaID+"</SemanticRela><RelaDescription>"+SpecialURLEncode(des, true)+"</RelaDescription></TCMLS>";
+			  var ceptsID;
+			  if(action != "create")
+				ceptsID = currentItem.getUserData("ID");
+			  else
+				ceptsID = -1;
+//			  alert(text);
+			  ceptsIns(ceptsID, text);
+		  }
+        });
+
+		add(btnCeptsOK, btnCancel, btnNavi);
+	  }
+	  d.add(ceptsEditWin);
+
+	  //各种相关概念名词
+      var tCeptsLabel = new QxAtom("各种相关<br>概念名词");
+
+      with(tCeptsLabel)
+      {
+        setLeft(0);//270
+        setTop(240);//110
+      };
+
+	  commandFrame.add(tCeptsLabel);
+
+	  var ceptsFrame = new QxFieldSet("Related Concepts");
+      with(ceptsFrame)
+      {
+        setLeft(60);//330
+        setTop(220);//90
+
+        setWidth("auto");
+        setHeight("auto");
+      };
+      commandFrame.add(ceptsFrame);
+
+	  var ceptsList = new QxList();
+	  with(ceptsList){
+		setTop(30);
+		setLeft(5);
+		setWidth(150);
+		setHeight(60);
+		setOverflow("auto");
+	  }
+	  ceptsFrame.add(ceptsList);
+
+	  //各种相关概念名词列表 增加实例
+      var but_ceptsCreate = new QxButton("创建");
+	  with(but_ceptsCreate){
+      	setTop(0);
+      	setLeft(40);
+      }
+      but_ceptsCreate.addEventListener("click", function(e)
+      {
+		cepts.setValue("");
+      	descript.setValue("");
+		ceptsSrcSrh.setValue("");
+		relaSource.setSelected(relaSource.getList().getFirstChild());
+		relaList.setSelected(relaList.getList().getFirstChild());
+		ceptsEditWin.open();
+		action = "create";
+      });
+      ceptsFrame.add(but_ceptsCreate);
+      
+      //各种相关概念名词列表 删除实例
+      var but_ceptsDelete = new QxButton("删除");
+	  with(but_ceptsDelete){
+      	setTop(0);
+      	setLeft(85);
+      }
+      but_ceptsDelete.addEventListener("click", function(e)
+      {
+		currentItem = ceptsList.getManager().getSelectedItem();
+      	if(null == currentItem)
+      		alert("请选择要删除的各种相关概念词!");
+      	else{
+      	//	ceptsDelete(currentItem.getUserData("ID"));
+      		ceptsList.remove(currentItem);
+      	}
+      });
+      ceptsFrame.add(but_ceptsDelete);
+
+	  //各种相关概念名词 浏览实例
+      var but_ceptsBrowse = new QxButton("浏览");
+	  with(but_ceptsBrowse){
+      	setTop(0);
+      	setLeft(130);
+      }
+      but_ceptsBrowse.addEventListener("click", function(e)
+      {
+		currentItem = ceptsList.getManager().getSelectedItem();
+		if(null == currentItem)
+			alert("请选择要浏览的各种相关概念词");
+		else{
+//			alert(currentItem.getUserData("ID"));
+			getCeptsDetail(currentItem.getUserData("ID"));
+/*			cepts.setValue(currentItem.getLabel());
+			relaSource.add(currentItem.getUserData("Source"));
+			relaList.add(currentItem.getUserData("Rela"));
+			descript.setValue(currentItem.getUserData("Descript"));
+			ceptsEditWin.open();*/
+			action = "modify";
+		}
+      });
+      ceptsFrame.add(but_ceptsBrowse);
+
+	  //名称字符类编辑窗口
+	  var btnAliasOK;
+	  var  aliasEditWin = new QxWindow("Alias", "icons/16/editor.png");
+      with(aliasEditWin) {
+        setSpace(300, 400, 100, 300);
+		setHeight(350);
+
+        var aliasLabel = new QxAtom('名称');
+        with(aliasLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:10,left:10,width:'20%'});
+        };
+        add(aliasLabel);
+
+        var alias = new QxTextArea();
+        with (alias) {
+          set({top:10,right:10,width:'70%'})
+        }
+        add(alias);
+		
+		//工具书列表 增加实例
+        var but_bookCreate = new QxButton("添加");
+		with(but_bookCreate){
+			setTop(50);
+			setLeft(150);
+		}
+		but_bookCreate.addEventListener("click", function(e)
+		{
+			stdEditWin.setCaption("工具书");
+			if(std != null){
+//	      		alert(std);
+	      		if(std == 'rela'){
+	      			stdEditWin.remove(rela);
+	      			stdEditWin.add(source);
+		      		std = 'source';      	
+		      	}
+	      		else if(std == 'type'){
+	      			stdEditWin.remove(type);
+	      			stdEditWin.add(source);
+		      		std = 'source';      	
+		      	}
+		      	else if(std == ''){
+		      		stdEditWin.add(type);
+		      		std = 'type';
+		      	}
+	      	}
+//			stdEditWin.add(source);
+			getstdEditWin(source, aliasSource);
+			getBooks();
+		});
+		add(but_bookCreate);
+		  
+		//工具书列表 删除实例
+		var but_bookDelete = new QxButton("删除");
+		with(but_bookDelete){
+			setTop(50);
+			setLeft(195);
+		}
+		but_bookDelete.addEventListener("click", function(e)
+		{
+			var currentItem = aliasSource.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要删除的工具书");
+			else{
+				aliasSource.remove(currentItem);
+				var currentAlias = aliasList.getManager().getSelectedItem();
+				if(currentAlias != null)
+					currentAlias.setUserData("Source", null);
+			}
+		});
+		add(but_bookDelete);
+
+		//工具书列表 浏览实例
+		var but_bookBrowse = new QxButton("浏览");
+		with(but_bookBrowse){
+			setTop(50);
+			setLeft(240);
+		}
+		but_bookBrowse.addEventListener("click", function(e)
+		{
+			var currentItem = aliasSource.getManager().getSelectedItem();
+			if(null == currentItem)
+				alert("请选择要浏览的工具书!");
+			else{
+				alert(currentItem.getUserData("ID"));
+			}
+		});
+		add(but_bookBrowse);
+
+        var sourceLabel = new QxAtom('名称来源');
+        with(sourceLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:80,left:10,width:'20%'});
+        };
+        add(sourceLabel);
+
+        var aliasSource = new QxComboBox();
+        with (aliasSource) {
+          set({top:80,right:10,width:'70%'})
+        }
+        add(aliasSource);
+        
+		/*************工具书查找***************/       
+        var srcSrhLabel = new QxAtom('名称来源查找');
+        with(srcSrhLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:120,left:60,width:60});
+        };
+        add(srcSrhLabel);
+        
+        var aliasSrcSrh = new QxTextField();
+        with (aliasSrcSrh) {
+        	set({top:120,left:140,width:150});
+        };
+        add(aliasSrcSrh);
+        
+        var srcSrh = new QxButton("查找");        
+        with (srcSrh) {
+        	set({top:120,left:310});
+        };
+        add(srcSrh);        
+        
+        srcSrh.addEventListener("execute", function(e) {
+        	var bookname = aliasSrcSrh.getValue();
+	        findBook(aliasSource, bookname);
+        });
+/***********************************/
+
+		var nameDateLabel = new QxAtom('名称命名时间');
+        with(nameDateLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:150,left:10,width:'20%'});
+        };
+        add(nameDateLabel);
+
+        var nameDate = new QxTextField();
+        with (nameDate) {
+          set({top:150,right:10,width:'70%'})
+        }
+        add(nameDate);
+		
+		var nameTypeLabel = new QxAtom('名称类型');
+        with(nameTypeLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:180,left:10,width:'20%'});
+        };
+        add(nameTypeLabel);
+
+/*        var nameType = new QxTextField();
+        with (nameType) {
+          set({top:180,right:10,width:'70%'})
+        }
+        add(nameType);*/
+		var nameType = new QxComboBox();
+		with (nameType) {
+          set({top:180,right:10,width:'70%'})
+        }
+		var item = new QxListItem("拼音");
+		nameType.add(item);
+		var item = new QxListItem("英文名");
+		nameType.add(item);
+		var item = new QxListItem("拉丁名");
+		nameType.add(item);
+		var item = new QxListItem("异名");
+		nameType.add(item);
+		var item = new QxListItem("别名");
+		nameType.add(item);
+		var item = new QxListItem("商品名");
+		nameType.add(item);
+		var item = new QxListItem("其他");
+		nameType.add(item);
+		add(nameType);
+
+		var statusLabel = new QxAtom('名称字符类<br>状态');
+        with(statusLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:210,left:10,width:'20%'});
+        };
+        add(statusLabel);
+
+        var aliasStatus = new QxTextField();
+        with (aliasStatus) {
+          set({top:210,right:10,width:'70%'})
+        }
+        add(aliasStatus);
+
+		var reasonLabel = new QxAtom('原因');
+        with(reasonLabel)
+        {
+          setHorizontalChildrenAlign('right');
+          set({top:240,left:10,width:'20%'});
+        };
+        add(reasonLabel);
+
+        var aliasReason = new QxTextField();
+        with (aliasReason) {
+          set({top:240,right:10,width:'70%'})
+        }
+        add(aliasReason);
+
+        var btnAliasOK = new QxButton("确认", "icons/16/button-ok.png");
+        var btnCancel = new QxButton("取消", "icons/16/button-cancel.png");
+
+        btnAliasOK.set({ bottom : 10, right : 10 });
+        btnCancel.set({ bottom : 10, left : 10 });
+        btnCancel.addEventListener("execute", function(e) {
+          aliasEditWin.close();
+        });
+        btnAliasOK.addEventListener("execute", function(e) {
+		  currentItem = aliasList.getManager().getSelectedItem();
+		  
+		  var name = alias.getValue();
+		  var date = nameDate.getValue();
+		  var type = nameType.getValue();
+		  var status = aliasStatus.getValue();
+		  var reason = aliasReason.getValue();		 
+		  var sourceItem = null;
+		  sourceItem = aliasSource.getSelected();
+		  		  
+		  if((alias == null) || (alias == '') /*|| (date == null) || (date == '') */|| (type == null) || 
+		  (type == '') || (sourceItem == null) || (status == null) || (status == '') || ((status != '1') && (reason == ''))){
+		  	alert("信息不全");
+		  }
+		  else{	        
+	          but_aliasCreate.setEnabled(false);
+			  but_aliasDelete.setEnabled(false);
+			  but_aliasBrowse.setEnabled(false);
+			  submit.setEnabled(false);
+          	  aliasEditWin.close(); 
+			  if(action == "create"){
+			  //store
+//				  var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				  var item = new QxColoredListItem(name/*, "icons/16/Instance.gif"*/);
+				  if((aliasList != null) && (aliasList.getChildren().length%2 == 0))
+					  item.setBackgroundColorUnselected(color);
+				  item.setUserData("ID", ""+(-1));
+				  item.setUserData("Source", sourceItem);
+				  item.setUserData("NameDate", date);			  
+				  item.setUserData("NameType", type);
+				  item.setUserData("Status", status);
+				  item.setUserData("Reason", reason);
+				  aliasList.add(item);
+				  aliasList.getManager().setSelectedItem(item);
+			  }
+			  else{
+				currentItem.setLabel(name);
+				currentItem.setUserData("Source", sourceItem);
+				currentItem.setUserData("NameDate", date);			  
+				currentItem.setUserData("NameType", type);
+	  		    currentItem.setUserData("Status", status);
+				currentItem.setUserData("Reason", reason);
+			  }
+			  var sourceID = "";
+			  if(sourceItem != null)
+			  	sourceID = sourceItem.getUserData("ID");
+			  //字符转义，顺序有意义
+/*			   //特殊字符处理
+			  if(name.indexOf('%') != -1)
+			    name = name.replace( new RegExp('%', "g") , '%25');
+			  if(name.indexOf('<') != -1)
+				name = name.replace( new RegExp('<',"g") , '%26lt;');*/
+			  var text = "<TCMLS><Alias>"+SpecialURLEncode(name, true)+"</Alias><NameSource>"+sourceID+"</NameSource><NameTime>"+date+"</NameTime><NameType>"+type+"</NameType><AliasStatus>"+status+"</AliasStatus><Reason>"+reason+"</Reason></TCMLS>";
+			  var aliasID=-1;
+			  if(action != "create")
+				aliasID = currentItem.getUserData("ID");
+			  else
+				aliasID = -1;
+//			  alert(text);
+			  aliasIns(aliasID, text);
+		  }
+        });
+
+		add(btnAliasOK, btnCancel);
+	  }
+	  d.add(aliasEditWin);
+
+	  //名称字符类
+      var tAliasLabel = new QxAtom("名称<br>字符类");
+
+      with(tAliasLabel)
+      {
+        setLeft(0);//270
+        setTop(110);//240
+      };
+
+	  commandFrame.add(tAliasLabel);
+
+	  var aliasFrame = new QxFieldSet("Alias");
+      with(aliasFrame)
+      {
+        setLeft(60);//330
+        setTop(90);//220
+
+        setWidth("auto");
+        setHeight("auto");
+      };
+      commandFrame.add(aliasFrame);
+
+	  var aliasList = new QxList();
+	  with(aliasList){
+		setTop(30);
+		setLeft(5);
+		setWidth(150);
+		setHeight(60);
+		setOverflow("auto");
+	  }
+	  aliasFrame.add(aliasList);
+
+	  //名称字符类 增加实例
+      var but_aliasCreate = new QxButton("创建");
+	  with(but_aliasCreate){		
+      	setTop(0);
+      	setLeft(40);
+      }
+      but_aliasCreate.addEventListener("click", function(e)
+      {
+		alias.setValue("");
+		aliasSource.setSelected(aliasSource.getList().getFirstChild());
+		nameDate.setValue("");
+		nameType.setValue("");
+		aliasStatus.setValue("1");
+		aliasReason.setValue("");
+		aliasSrcSrh.setValue("");
+      	aliasEditWin.open();
+      	action = "create";
+      });
+      aliasFrame.add(but_aliasCreate);
+      
+      //名称字符类 删除实例
+      var but_aliasDelete = new QxButton("删除");
+	  with(but_aliasDelete){
+      	setTop(0);
+      	setLeft(85);
+      }
+      but_aliasDelete.addEventListener("click", function(e)
+      {
+		currentItem = aliasList.getManager().getSelectedItem();
+      	if(null == currentItem)
+      		alert("请选择要删除的名称字符类实例！");
+      	else{
+      		aliasList.remove(currentItem);
+      	}
+      });
+      aliasFrame.add(but_aliasDelete);
+
+	  //名称字符类 浏览实例
+      var but_aliasBrowse = new QxButton("浏览");
+	  with(but_aliasBrowse){
+      	setTop(0);
+      	setLeft(130);
+      }
+      but_aliasBrowse.addEventListener("click", function(e)
+      {
+		currentItem = aliasList.getManager().getSelectedItem();
+		if(null == currentItem)
+			alert("请选择要浏览的名称字符类的实例！");
+		else{
+/*			alias.setValue(currentItem.getLabel());
+			aliasSource.add(currentItem.getUserData("Source"));
+			nameDate.setValue(currentItem.getUserData("NameDate"));
+			nameType.setValue(currentItem.getUserData("NameType"));
+			aliasStatus.setValue(currentItem.getUserData("Status"));
+			aliasReason.setValue(currentItem.getUserData("Reason"));*/
+//			alert(currentItem.getUserData("ID"));
+			getAliasDetail(currentItem.getUserData("ID"));
+			action = "modify";
+		}
+      });
+      aliasFrame.add(but_aliasBrowse);
+
+      //概念状态
+      var tStatusLabel = new QxAtom("概念状态");
+      with(tStatusLabel)
+      {
+        setLeft(0);//270
+        setTop(480);//370
+      };
+      commandFrame.add(tStatusLabel);
+      var status = new QxComboBox;
+      with(status)
+      {
+        setLeft(50);//330
+//        setRight(0);
+        setTop(480);//370
+
+//        setReadOnly(false);
+      };
+	  commandFrame.add(status);
+	  var item = new QxListItem("已二次审校");
+	  status.add(item);
+	  var item = new QxListItem("应删除");
+	  status.add(item);
+
+	  //原因
+	  var tReasonLabel = new QxAtom("状态原因");
+      with(tReasonLabel)
+      {
+        setLeft(200);//270
+        setTop(480);//400
+      };
+      commandFrame.add(tReasonLabel);
+      var reason = new QxTextField;
+      with(reason)
+      {
+        setLeft(250);//330
+//        setRight(0);
+        setTop(480);//400
+
+        setReadOnly(false);
+      };
+	  commandFrame.add(reason);
+/************************************************/
+	  //snomed收录
+      var tcmlsSource = new QxCheckBox("来源于一体化语言系统");
+      with(tcmlsSource)
+      {
+        setLeft(400);//270
+        setTop(480);//430
+      };
+	  commandFrame.add(tcmlsSource);
+/*********************************************/
+	  var submit = new QxButton("提交");
+	  with(submit){
+      	setLeft(250);//250
+      	setTop(505);//480
+      }
+	  submit.setEnabled(false);
+
+      submit.addEventListener("click", function(e)
+      {	
+      	var finished = true;
+		var item = insList.getManager().getSelectedItem();
+		if(item.getLabel() != tCurrentConceptInput.getValue()){
+			item.setLabel(tCurrentConceptInput.getValue());
+		}
+		if((tCurrentConceptInput.getValue() == null) || (tCurrentConceptInput.getValue() == '') || (tEditorInput.getValue() == null) ||
+		(tEditorInput.getValue() == '') || (tDateInput.getValue() == null) || (tDateInput.getValue() == '') || 
+		(((status.getValue() == '应删除') || (status.getValue() == '应修改')) && (reason.getValue() == ''))){
+			finished = false;
+		}
+		var text = "<TCMLS><ConceptName>"+SpecialURLEncode(tCurrentConceptInput.getValue(), true)+"</ConceptName><EditAuthor>"+tEditorInput.getValue()+"</EditAuthor><EditTime>"+tDateInput.getValue()+"</EditTime><ConceptStatus>"+status.getValue()+"</ConceptStatus><Reason>"+reason.getValue()+"</Reason>"+"<Checker>"+tCheckerInput.getValue()+"</Checker>";
+		if(tcmlsSource.getChecked())
+			text = text + "<isTCMLS>1</isTCMLS>";
+		else
+			text = text + "<isTCMLS>0</isTCMLS>";
+		/**TCMCT不同于TCMLS的判断**/
+		var list = typeList.getChildren();
+		var isTypeNeed = isRootTypeNeed(currentNode);
+		if(isTypeNeed){
+			if(list.length == 0){
+				finished = false;
+			}
+		}
+		for(var i=0; i<list.length; i++)
+			text = text + "<SemanticType>" + list[i].getUserData("ID") + "</SemanticType>";
+
+		/**TCMCT不同于TCMLS的判断**/
+		list = defList.getChildren();
+		var isDefiNotNeed = isRootDefiNotNeed(currentNode);
+		if(!isDefiNotNeed){
+			if(list.length == 0){
+				finished = false;
+			}
+		}
+		for(var i=0; i<list.length; i++)
+			text = text + "<Definition>" + list[i].getUserData("ID") + "</Definition>";
+
+		list = expList.getChildren();
+/*		if(list.length == 0){
+			finished = false;
+		}*/
+		for(var i=0; i<list.length; i++)
+			text = text + "<Explanation>" + list[i].getUserData("ID") + "</Explanation>";
+
+		list = ceptsList.getChildren();
+		if(list.length == 0){
+			finished = false;
+		}
+		for(var i=0; i<list.length; i++)
+			text = text + "<RelatedConcepts>" + list[i].getUserData("ID") + "</RelatedConcepts>";
+	
+		list = aliasList.getChildren();
+		if(list.length == 0){
+			finished = false;
+		}
+		for(var i=0; i<list.length; i++)
+			text = text + "<Alias>" + list[i].getUserData("ID") + "</Alias>";
+		text = text + "</TCMLS>";
+//		alert(text);
+		
+		if(finished){
+			var conceptID = -1;
+			conceptID = item.getUserData("ID");
+			clsID = currentNode.getUserData("ID");
+			conceptIns(conceptID, clsID, text);
+		}
+		else			
+			alert("信息不全");
+      });
+      commandFrame.add(submit);
+
+	  
+/**********************************************************************/
+		//与服务器端的交互函数以及一些全局函数
+		
+		function clearAll(){
+			insList.removeAll();
+//			clearInsDetail();
+		};
+
+		function clearInsDetail(){
+			tCurrentConceptInput.setValue("");
+			tEditorInput.setValue("");
+//			tEditorInput.setReadOnly(false);
+			tDateInput.setValue("");
+			if(typeList.getChildren().length > 0)
+				typeList.removeAll();
+			if(defList.getChildren().length > 0)
+				defList.removeAll();
+			if(expList.getChildren().length > 0)
+				expList.removeAll();
+			if(ceptsList.getChildren().length > 0)
+				ceptsList.removeAll();
+			if(aliasList.getChildren().length > 0)
+				aliasList.removeAll();
+			tCheckerInput.setValue("");
+			status.setValue("");
+			reason.setValue("");
+			tcmlsSource.setChecked(false);
+		};
+		
+		function disableAll(){
+			but_defCreate.setEnabled(false);
+			but_defDelete.setEnabled(false);
+			but_expCreate.setEnabled(false);
+			but_expDelete.setEnabled(false);
+			but_typeCreate.setEnabled(false);
+			but_typeDelete.setEnabled(false);
+			but_ceptsCreate.setEnabled(false);
+			but_ceptsDelete.setEnabled(false);
+			but_aliasCreate.setEnabled(false);
+			but_aliasDelete.setEnabled(false);
+			submit.setEnabled(false);
+			//but_insDelete.setEnabled(false);
+			btnDefOK.setEnabled(false);
+			btnExpOK.setEnabled(false);
+			btnCeptsOK.setEnabled(false);
+			btnAliasOK.setEnabled(false);
+		};
+
+		function enableAll(){
+			but_defCreate.setEnabled(true);
+			but_defDelete.setEnabled(true);
+			but_expCreate.setEnabled(true);
+			but_expDelete.setEnabled(true);
+			but_typeCreate.setEnabled(true);
+			but_typeDelete.setEnabled(true);
+			but_ceptsCreate.setEnabled(true);
+			but_ceptsDelete.setEnabled(true);
+			but_aliasCreate.setEnabled(true);
+			but_aliasDelete.setEnabled(true);
+			submit.setEnabled(true);
+			but_insBrowse.setEnabled(true);
+			//but_insDelete.setEnabled(true);
+			btnDefOK.setEnabled(true);
+			btnExpOK.setEnabled(true);
+			btnCeptsOK.setEnabled(true);
+			btnAliasOK.setEnabled(true);
+		};
+		
+		/**TCMCT特有的函数**/
+		function isRootTypeNeed(treeFolder){
+			var tmp = treeFolder;
+			var nodename = "";
+			while((null != tmp) && !(tmp instanceof QxTree)){
+				nodename = tmp._labelObject.getHtml();
+				for(var i=0; i<TYPESPECIAL.length; i++){
+					if(nodename == TYPESPECIAL[i]){
+						return true;
+					}
+				}
+				tmp = tmp.getParentFolder();
+			}
+			if((null == tmp) || (tmp instanceof QxTree)){
+				return false;
+			}
+		};
+
+		function isRootDefiNotNeed(treeFolder){
+			var tmp = treeFolder;
+			var nodename = "";
+			while((null != tmp) && !(tmp instanceof QxTree)){
+				nodename = tmp._labelObject.getHtml();
+				for(var i=0; i<DEFISPECIAL.length; i++){
+					if(nodename == DEFISPECIAL[i]){
+						return true;
+					}
+				}
+				tmp = tmp.getParentFolder();
+			}
+			if((null == tmp) || (tmp instanceof QxTree)){
+				return false;
+			}
+		};
+		
+		function findBook(sourceList, bookname){
+	        var item = sourceList.getList().findString(bookname);
+	        if(item != null)	        	
+        		sourceList.setSelected(item);
+        	else{
+	        	if(source.isEmpty()){
+	        		getBooks();
+	        	}
+	        	item = source.findString(bookname);
+	        	if(item == null)
+	        		alert("您要找的书籍不存在");
+	        	else{
+	        		var newItem = new QxListItem(item.getLabel());
+	        		newItem.setUserData("ID", item.getUserData("ID"));
+	        		sourceList.addAtBegin(newItem);
+	        		sourceList.setSelected(newItem);
+	        	}
+	        }
+		};
+		
+		function getSubclses(clsID, isRoot){
+			editStatus.setValue("正在获取类的信息……");
+			waiting.show();
+//			document.body.style.cursor='wait'; 
+			var strParams = 'type=subclses' + '&clsid=' + clsID + '&isRoot=' + isRoot; 
+			var url = href + '?' + strParams;
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setSubclses,null,"POST",null); 
+		};
+		  
+		function setSubclses(){			
+//			alert("get");
+      		var text = this.req.responseText; 
+//			alert(text);
+//			text = text.documentElement;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("clsID");
+			for(var i=0; i<list.length; i++){
+				var clsID = text.documentElement.getElementsByTagName("clsID")[i].firstChild.data
+				var clsName = text.documentElement.getElementsByTagName("clsName")[i].firstChild.data;
+				var isChecked = text.documentElement.getElementsByTagName("isChecked")[i].firstChild.data;
+				var node;
+				if(isChecked == 'false')
+					node = new QxTreeFolder(clsName, "icons/16/Class.gif", "icons/16/Class.gif");   
+				else
+					node = new QxTreeFolder(clsName, "icons/16/floppy.png", "icons/16/floppy.png"); 
+								
+/*				node.addEventListener("dragstart", handleDragStart);
+				node.addEventListener("dragdrop", handleDragDrop); 
+				node.addEventListener("dragover", handleDragOver);
+				node.addEventListener("dragout", handleDragOut);        
+				node.setDropDataTypes(["QxTreeElement"]);
+				node.supportsDrop = supportsDrop;*/
+
+				node.setUserData("ID", clsID);
+				if(null != currentNode)
+					currentNode.add(node);	
+				else
+					treeSource.add(node);
+			}
+			if(null != currentNode)
+				currentNode.open();
+			editStatus.setValue("类信息已经获得");
+			waiting.close();
+//			document.body.style.cursor='auto'; 
+		};
+		
+		function getInstances(clsID){
+			editStatus.setValue("正在获取类下实例列表的信息……");
+			var strParams = 'type=inslist' + '&clsid=' + clsID;
+			var url = href + '?' + strParams;
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setInstances,null,"POST",null); 
+		};
+		
+		function setInstances(){					
+//			alert("get");
+      		var text = this.req.responseText; 					
+//			alert(text);
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("insID");
+			insList.removeAll();
+			for(var i=0; i<list.length; i++){
+				var insID = text.getElementsByTagName("insID")[i].firstChild.data;
+				var insName = text.getElementsByTagName("insName")[i].firstChild.data;
+				var item = new QxListItem(insName/*, "icons/16/Instance.gif"*/);	
+				item.setUserData("ID", insID);
+				insList.add(item);
+			}
+			editStatus.setValue("已经获取类下实例列表的信息");
+		};
+		
+		function setCls(clsID, clsName){
+			waiting.show();
+			//可能是新建的类，其id可能为空
+			var strParams = "type=setCls" + "&clsid=" + clsID + "&clsname=" + clsName;
+			if(clsID == -1)
+				strParams = strParams + "&fclsid=" + currentNode.getParentFolder().getUserData("ID");
+			var url = href + '?' + strParams;
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setClsID,null,"POST",null); 
+		};
+
+		function setClsID(){
+			if(currentNode.getUserData("ID") == -1){							
+//				alert("get");
+	      		var text = this.req.responseText; 					
+//				alert(text);
+				var parser = new DOMParser();
+				text = parser.parseFromString(text, "text/xml");
+				var clsID = text.getElementsByTagName("ID")[0].firstChild.data;
+				currentNode.setUserData("ID", clsID);
+				alert("成功创建类！");
+			}
+			waiting.close();
+		}
+		
+		function deleteCls(clsID){
+			waiting.show();
+			var strParams = "type=deleteCls" + "&clsid=" + clsID;
+			var url = href + '?' + strParams;
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,deleteResponse,null,"POST",null);
+		};
+		
+		function deleteResponse(){
+			alert("已经删除!");
+			waiting.close();
+		};
+		
+		function deleteIns(insID, clsID){
+			var strParams = "type=deleteIns" + "&insid=" + insID + "&clsid=" + clsID;			
+			var url = href + '?' + strParams;
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,deleteResponse,null,"POST",null);
+		};
+		
+		function conceptIns(insID, clsID, text){
+			waiting.show();
+			but_insCreate.setEnabled(false);
+			//but_insDelete.setEnabled(false);
+			but_insBrowse.setEnabled(false);
+			submit.setEnabled(false);
+			
+			var strParams = "type=conceptIns" + "&insid=" + insID + "&clsid=" + clsID + "&xml=" + text;
+			var url = href/* + '?' + strParams*/;
+//			var url = href;
+//			alert(strParams);
+			var loader1 = new net.ContentLoader(url,setConceptInsID,null,"POST",/*null*/strParams); 
+//			var loader1 = new net.ContentLoader(url,setConceptInsID,null,"POST",strParams); 
+		};
+
+		function setConceptInsID(){
+//			alert("get");			
+			var currentItem = insList.getManager().getSelectedItem();
+			if((currentItem != null) && (currentItem.getUserData("ID") == -1)){
+	      		var text = this.req.responseText;
+				var parser = new DOMParser();
+				text = parser.parseFromString(text, "text/xml");
+				var id = text.getElementsByTagName("ID")[0].firstChild.data;
+				currentItem.setUserData("ID", ""+id);
+			}
+			alert("提交成功！");
+			but_insCreate.setEnabled(true);
+			//but_insDelete.setEnabled(true);
+			but_insBrowse.setEnabled(true);
+			submit.setEnabled(true);
+			waiting.close();
+		}
+		
+		function getInsDetail(insID){    
+			waiting.show();
+			editStatus.setValue("正在获取实例定义信息……");                                 
+			var strParams = 'type=insdetail' + '&insid=' + insID;                          
+			var url = href + '?' + strParams;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setInsDetail,null,"POST",null); 
+		};
+
+		function setInsDetail(){					
+//			alert("get");
+//			clearInsDetail();
+      		var text = this.req.responseText; 					
+//			alert(text);
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("ConceptName");
+			for(var i=0; i<list.length; i++){
+				tCurrentConceptInput.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("EditAuthor");
+			for(var i=0; i<list.length; i++){
+				tEditorInput.setValue(list[0].firstChild.data);
+			}	
+			var list = text.getElementsByTagName("Checker");
+			for(var i=0; i<list.length; i++){
+				tCheckerInput.setValue(list[0].firstChild.data);
+			}		
+			var list = text.getElementsByTagName("EditTime");
+			for(var i=0; i<list.length; i++){
+				tDateInput.setValue(list[0].firstChild.data);
+			}	
+			var list = text.getElementsByTagName("ConceptStatus");
+			for(var i=0; i<list.length; i++){
+				status.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("Reason");
+			for(var i=0; i<list.length; i++){
+				reason.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("isTCMLS");
+			for(var i=0; i<list.length; i++){
+				var value = list[0].firstChild.data;
+				if(value == 1)
+					tcmlsSource.setChecked(true);
+				else
+					tcmlsSource.setChecked(false);
+			}
+			var list = text.documentElement.getElementsByTagName("SemanticType");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+//				var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				var item = new QxColoredListItem(name/*, "icons/16/Instance.gif"*/);
+				if((typeList != null) && (typeList.getChildren().length%2 == 0))
+					item.setBackgroundColorUnselected(color);
+				item.setUserData("ID", id);
+				typeList.add(item);
+			}
+			list = text.documentElement.getElementsByTagName("Definition");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+//				var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				var item = new QxColoredListItem(name/*, "icons/16/Instance.gif"*/);
+				if((defList != null) && (defList.getChildren().length%2 == 0))
+					item.setBackgroundColorUnselected(color);
+				item.setUserData("ID", id);
+				defList.add(item);
+			}
+			list = text.documentElement.getElementsByTagName("Explanation");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+//				var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				var item = new QxColoredListItem(name/*, "icons/16/Instance.gif"*/);
+				if((expList != null) && (expList.getChildren().length%2 == 0))
+					item.setBackgroundColorUnselected(color);
+				item.setUserData("ID", id);
+				expList.add(item);
+			}
+			list = text.documentElement.getElementsByTagName("Alias");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+//				var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				var item = new QxColoredListItem(name/*, "icons/16/Instance.gif"*/);
+				if((aliasList != null) && (aliasList.getChildren().length%2 == 0))
+					item.setBackgroundColorUnselected(color);
+				item.setUserData("ID", id);
+				aliasList.add(item);
+			}
+			list = text.documentElement.getElementsByTagName("RelatedConcepts");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+//				var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				var item = new QxColoredListItem(name/*, "icons/16/Instance.gif"*/);
+				if((ceptsList != null) && (ceptsList.getChildren().length%2 == 0))
+					item.setBackgroundColorUnselected(color);
+				item.setUserData("ID", id);
+				ceptsList.add(item);
+			}
+/*			if((user != tEditorInput.getValue()) || (tCheckerInput.getValue() != '')){
+				disableAll();
+			}
+			else
+				enableAll();*/
+			enableAll();
+			//校验员的权限控制
+			//2006-7-13 修改 该段被注释
+/*			if((tCheckerInput.getValue() != '') && (user != tCheckerInput.getValue())){
+				disableAll();
+				tCheckerInput.setReadOnly(true);
+			}
+			else{
+				enableAll();
+				tCheckerInput.setReadOnly(false);
+			}*/
+			editStatus.setValue("已经获得实例定义信息");
+			waiting.close();
+		};
+
+		function getTypes(){
+			if(type.isEmpty()){
+				editStatus.setValue("正在获取属性值对应列表……");
+				var strParams = "type=typelist";
+				var url = href + '?' + strParams;  
+//				alert(url);
+				var loader1 = new net.ContentLoader(url,setTypeList,null,"POST",null); 
+			}
+		};
+
+		function setTypeList(){
+//			alert("get");
+      		var text = this.req.responseText; 
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.documentElement.getElementsByTagName("typeID");
+			for(var i=0; i<list.length; i++){
+				var id = list[i].firstChild.data;
+				var name = text.documentElement.getElementsByTagName("typeName")[i].firstChild.data;
+//				var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				var item = new QxColoredListItem(name/*, "icons/16/Instance.gif"*/);
+				if(i%2 == 0)
+					item.setBackgroundColorUnselected(color);
+				item.setUserData("ID", id);
+				type.add(item);
+			}
+			editStatus.setValue("已经获取属性值对应列表");
+		};
+
+		function getRelas(){
+			if(rela.isEmpty()){
+				editStatus.setValue("正在获取语义关系列表……");
+				var strParams = "type=relalist";
+				var url = href + '?' + strParams;  
+//				alert(url);
+				var loader1 = new net.ContentLoader(url,setRelaList,null,"POST",null); 
+			}
+		}
+
+		function setRelaList(text){
+//			alert("get");
+      		var text = this.req.responseText; 
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.documentElement.getElementsByTagName("relaID");
+			for(var i=0; i<list.length; i++){
+				var id = list[i].firstChild.data;
+				var name = text.documentElement.getElementsByTagName("relaName")[i].firstChild.data;
+//				var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				var item = new QxColoredListItem(name/*, "icons/16/Instance.gif"*/);
+				if(i%2 == 0)
+					item.setBackgroundColorUnselected(color);
+				item.setUserData("ID", id);
+				rela.add(item);
+			}
+			editStatus.setValue("已经获取语义关系列表");
+		};
+
+		function getBooks(){
+			if(source.isEmpty()){
+				editStatus.setValue("正在获取工具书列表……");
+				var strParams = "type=booklist";
+				var url = href + '?' + strParams;  
+//				alert(url);
+				var loader1 = new net.ContentLoader(url,setBookList,null,"POST",null); 
+			}
+		};
+
+		function setBookList(){
+//			alert("get");
+			//测试数据
+/*			for(var i=1; i<20; i++){
+			 	var item = new QxListItem("Book" + i);
+			 	item.setUserData("ID", "ID"+i);
+			 	source.add(item);
+			}*/
+      		var text = this.req.responseText; 
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.documentElement.getElementsByTagName("bookID");
+			for(var i=0; (i<list.length)/* && (i <10)*/; i++){
+				var id = list[i].firstChild.data;
+				var name = text.documentElement.getElementsByTagName("bookName")[i].firstChild.data;
+				var tips = text.documentElement.getElementsByTagName("bookTip")[i].firstChild.data;
+				var tip = new QxToolTip(tips);
+//				var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				var item = new QxColoredListItem(name/*, "icons/16/Instance.gif"*/);
+				if(i%2 == 0)
+					item.setBackgroundColorUnselected(color);
+				item.setUserData("ID", id);
+				item.setToolTip(tip);
+				source.add(item);
+			}
+			editStatus.setValue("已经获得工具书列表");
+		};
+		
+		function defIns(defID, text){
+			var strParams = "type=defIns" + "&defid=" + defID + "&xml=" + text;
+			var url = href/* + '?' + strParams*/;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setDefInsID,/*onSubmitError*/null,"POST",/*null*/strParams); 
+		};
+
+		function setDefInsID(){
+//			alert("get");			
+			var currentItem = defList.getManager().getSelectedItem();
+			if((currentItem != null) && (currentItem.getUserData("ID") == -1)){
+	      		var text = this.req.responseText;
+				var parser = new DOMParser();
+				text = parser.parseFromString(text, "text/xml");
+				var id = text.getElementsByTagName("ID")[0].firstChild.data;
+				currentItem.setUserData("ID", ""+id);
+			}
+			but_defCreate.setEnabled(true);
+			but_defDelete.setEnabled(true);
+			but_defBrowse.setEnabled(true);
+			submit.setEnabled(true);
+		};
+
+		function getDefDetail(defID){   
+			editStatus.setValue("正在获取概念定义实例……");                                   
+			var strParams = "type=def" + "&defid=" + defID; 
+			var url = href + '?' + strParams;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setDefDetail,null,"POST",null); 
+		};
+
+		function setDefDetail(){
+//			alert("get");
+			defSrcSrh.setValue("");
+      		var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			def.setValue("");
+			var list = text.getElementsByTagName("Definition");
+			for(var i=0; i<list.length; i++){
+				def.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("DefiSource");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+//				var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+				var item = defSource.getList().findString(name);
+				if(null == item){
+					item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+					item.setUserData("ID", id);
+					defSource.addAtBegin(item);
+				}
+				defSource.setSelected(item);
+			}
+			defEditWin.open();
+			editStatus.setValue("已经获得概念定义实例");
+		};
+		//未测试，defid去处相关的index，但是可能有其他实例的牵扯
+		function defDelete(defID){			
+			var strParams = "type=defDel" + "&defid=" + defID;
+			var url = href + '?' + strParams;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,null,null,"POST",null);
+		}
+		
+		function expIns(expID, text){
+			var strParams = "type=expIns" + "&expid=" + expID + "&xml=" + text;
+			var url = href/* + '?' + strParams*/;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setExpInsID,null,"POST",/*null*/strParams); 
+		};
+
+		function setExpInsID(){
+//			alert("get");
+			var currentItem = expList.getManager().getSelectedItem();
+			if((currentItem != null) && (currentItem.getUserData("ID") == -1)){
+	      		var text = this.req.responseText;
+				var parser = new DOMParser();
+				text = parser.parseFromString(text, "text/xml");
+				var id = text.getElementsByTagName("ID")[0].firstChild.data;
+				currentItem.setUserData("ID", ""+id);
+			}
+			but_expCreate.setEnabled(true);
+			but_expDelete.setEnabled(true);
+			but_expBrowse.setEnabled(true);
+			submit.setEnabled(true);
+		};
+
+		function getExpDetail(expID){   
+			editStatus.setValue("正在获取概念释义实例……");                                      
+			var strParams = "type=exp" + '&expid=' + expID; 
+			var url = href + '?' + strParams;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setExpDetail,null,"POST",null); 
+		};
+
+		function setExpDetail(){
+//			alert("get");
+			expSrcSrh.setValue("");
+      		var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("Explanation");
+			for(var i=0; i<list.length; i++){
+				exp.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("DefiSource");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+				var item =expSource.getList().findString(name);
+				if(null == item){
+					item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+					item.setUserData("ID", id);
+					expSource.addAtBegin(item);
+				}
+				expSource.setSelected(item);
+			}
+			expEditWin.open();
+			editStatus.setValue("已经获得概念释义实例");
+		};
+		
+		function ceptsIns(ceptsID, text){
+			var strParams = "type=ceptsIns" + "&ceptsid=" + ceptsID + "&xml=" + text;
+			var url = href/* + '?' + strParams*/;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setCeptsInsID,null,"POST",/*null*/strParams);
+		};
+
+		function setCeptsInsID(text){			
+//			alert("get");
+			var currentItem = ceptsList.getManager().getSelectedItem();
+			if((currentItem != null) && (currentItem.getUserData("ID") == -1)){
+	      		var text = this.req.responseText;
+				var parser = new DOMParser();
+				text = parser.parseFromString(text, "text/xml");
+				var id = text.getElementsByTagName("ID")[0].firstChild.data;
+				currentItem.setUserData("ID", ""+id);  
+			}      
+	        but_ceptsCreate.setEnabled(true);
+			but_ceptsDelete.setEnabled(true);
+			but_ceptsBrowse.setEnabled(true);
+			submit.setEnabled(true);
+		};
+
+		function getCeptsDetail(ceptsID){     
+			editStatus.setValue("正在获取各种相关概念词实例……");                                    
+			var strParams = 'type=cepts' + '&ceptsid=' + ceptsID;  
+			var url = href + '?' + strParams;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setCeptsDetail,null,"POST",null); 
+		};	
+
+		function setCeptsDetail(){
+//			alert("get");
+			ceptsSrcSrh.setValue("");
+      		var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			cepts.setValue("");
+			descript.setValue("");
+/*			if(relaSource.getChildren().length > 0)
+				relaSource.removeAll();
+			if(relaList.getChildren().length > 0)
+				relaList.removeAll();*/
+			var list = text.getElementsByTagName("RelatedConcept");
+			for(var i=0; i<list.length; i++){
+				cepts.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("RelaDescription");
+			for(var i=0; i<list.length; i++){
+				descript.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("SemanticSource");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+				var item = relaSource.getList().findString(name);
+				if(null == item){
+					item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+					item.setUserData("ID", id);
+					relaSource.addAtBegin(item);
+				}
+				relaSource.setSelected(item);
+			}
+			var list = text.getElementsByTagName("SemanticRela");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+				var item = relaList.getList().findString(name);
+				if(null == item){
+					item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+					item.setUserData("ID", id);
+					relaList.addAtBegin(item);
+				}
+				relaList.setSelected(item);
+			}
+			ceptsEditWin.open();
+			editStatus.setValue("已经获得各种相关概念词实例");
+		};
+
+		function aliasIns(aliasID, text){
+			var strParams = "type=aliasIns" + "&aliasid=" + aliasID + "&xml=" + text;
+			var url = href/* + '?' + strParams*/;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setAliasInsID, null,"POST",/*null*/strParams); 
+		};
+
+		function setAliasInsID(text){
+//			alert("get");
+			var currentItem = aliasList.getManager().getSelectedItem();
+			if((currentItem != null) && (currentItem.getUserData("ID") == -1)){
+	      		var text = this.req.responseText;
+				var parser = new DOMParser();
+				text = parser.parseFromString(text, "text/xml");
+				var id = text.getElementsByTagName("ID")[0].firstChild.data;
+				currentItem.setUserData("ID", ""+id);
+			}         
+      		but_aliasCreate.setEnabled(true);
+	  		but_aliasDelete.setEnabled(true);
+	  		but_aliasBrowse.setEnabled(true);
+			submit.setEnabled(true);
+		};
+
+		function getAliasDetail(aliasID){
+			editStatus.setValue("正在获取名称字符类实例……");
+			var strParams = 'type=alias' + '&aliasid=' + aliasID;  
+			var url = href + '?' + strParams;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setAliasDetail,null,"POST",null); 
+		};
+
+		function setAliasDetail(){
+//			alert("get");
+			aliasSrcSrh.setValue("");
+      		var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			alias.setValue("");
+			nameType.setValue("");
+			nameDate.setValue("");
+			aliasStatus.setValue("");
+			aliasReason.setValue("");
+			var list = text.getElementsByTagName("Alias");
+			for(var i=0; i<list.length; i++){
+				alias.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("NameType");
+			for(var i=0; i<list.length; i++){
+				nameType.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("NameTime");
+			for(var i=0; i<list.length; i++){
+				nameDate.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("AliasStatus");
+			for(var i=0; i<list.length; i++){
+				aliasStatus.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("Reason");
+			for(var i=0; i<list.length; i++){
+				aliasReason.setValue(list[0].firstChild.data);
+			}
+			var list = text.getElementsByTagName("NameSource");
+			for(var i=0; i<list.length; i++){
+				var name = list[i].firstChild.data;
+				var id = list[i].getAttribute("ID");
+				var item = aliasSource.getList().findString(name);
+				if(null == item){
+					item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+					item.setUserData("ID", id);
+					aliasSource.addAtBegin(item);
+				}
+				aliasSource.setSelected(item);
+			}
+			aliasEditWin.open();
+			editStatus.setValue("已经获得名称字符类实例");
+		};
+		
+		function treeAct(node, value){
+			node.setEnabled(value);
+			var children = node.getChildren();
+//			alert("act");
+			alert(children.length);
+			for(var i=0; i<children.length; i++){
+				treeAct(children[i], value);
+			}
+		};
+		
+		//实例搜索
+		function getSrhInstances(ins, isFuzzy){
+			waiting.show();
+			editStatus.setValue("正在查找实例……");
+			var strParams = 'type=insSrh' + '&ins=' + ins  + '&isFuzzy=' + isFuzzy;  
+			var url = href + '?' + strParams;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,setSrhInstances,null,"POST",null);
+		};
+
+		function setSrhInstances(){
+			if(insList.getChildren().length > 0)
+				insList.removeAll();			
+      		var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("Instance");
+			if(list.length == 0)
+				alert("没有该实例");
+			else{
+				for(var i=0; i<list.length; i++){
+					var name = list[i].firstChild.data;
+					var id = list[i].getAttribute("ID");
+					var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+					item.setUserData("ID", id);
+					insList.add(item);
+				}
+			}
+			editStatus.setValue("结束查找");
+			waiting.close();
+		};
+//实例搜索
+
+		function getSearchResult(type){			
+			var strParams = 'type=typeSrh' + '&srhType=' + type;  
+			var url = href + '?' + strParams;  
+			var loader1 = new net.ContentLoader(url,setSearchResult,null,"POST",null);
+		};
+
+		function setSearchResult(){						
+      		var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("ID");
+			for(var i=0; i<list.length; i++){
+				srhResult.setValue(list[0].firstChild.data);
+			}
+		};
+
+		function getAffiResultTable(type){					
+			var strParams = 'type=typeSrh' + '&srhType=' + type;  
+			var url = href + '?' + strParams;  
+			var loader1 = new net.ContentLoader(url,setAffiResultTable,null,"POST",null);
+		};
+
+		function setAffiResultTable(){						
+      		var result = this.req.responseText;
+			var parser = new DOMParser();
+			result = parser.parseFromString(result, "text/xml");
+			var list = result.getElementsByTagName("Affili");
+			var lc =
+			{
+				name : { label : "单位", width : 100, type : "text" },
+				count: { label : "加工数", width : 50, type : "text"},
+				checked: {label: "校验数", width : 50, type : "text"}
+			};
+			var ld = [];
+			for(var i=0; i<list.length; i++){
+				ld.push({ name : { text : list[i].firstChild.data }, 
+						  count : { text : result.getElementsByTagName("AffiliCount")[i].firstChild.data },
+						  checked : { text : result.getElementsByTagName("AffiliChecked")[i].firstChild.data }
+						});
+			};
+			getStatisWin(lc, ld);
+			statisWin.show();
+		}
+
+		function getUserResultTable(type){							
+			var strParams = 'type=typeSrh' + '&srhType=' + type;  
+			var url = href + '?' + strParams;  
+			var loader1 = new net.ContentLoader(url,setUserResultTable,null,"POST",null);
+		};
+
+		function setUserResultTable(){					
+      		var result = this.req.responseText;
+			var parser = new DOMParser();
+			result = parser.parseFromString(result, "text/xml");
+			var list = result.getElementsByTagName("User");
+			var lc =
+			{
+				name : { label : "用户名", width : 100, type : "text" },
+				count: { label : "加工数", width : 50, type : "text"},
+				checked: {label: "校验数", width : 50, type : "text"}
+			};
+			var ld = [];
+			for(var i=0; i<list.length; i++){
+				ld.push({ name : { text : list[i].firstChild.data }, 
+						  count : { text : result.getElementsByTagName("UserCount")[i].firstChild.data },
+						  checked : { text : result.getElementsByTagName("UserChecked")[i].firstChild.data }
+						});
+			};
+			getStatisWin(lc, ld);
+			statisWin.show();
+		};
+
+		function getNaviedConcept(ceptName){
+			waiting.show();
+			editStatus.setValue("正在导航实例 " + ceptName);
+			var strParams = 'type=navi' + '&insName=' + ceptName;  
+			var url = href + '?' + strParams;  
+			var loader1 = new net.ContentLoader(url,setNaviedConcept,null,"POST",null);
+		};
+
+		function setNaviedConcept(){			
+      		var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("Instance");
+			if(list.length == 0)
+				alert("该实例尚无定义");
+			else{
+				if(insList.getChildren().length > 0)
+					insList.removeAll();
+				for(var i=0; i<list.length; i++){
+					var name = list[i].firstChild.data;
+					var id = list[i].getAttribute("ID");
+					var item = new QxListItem(name/*, "icons/16/Instance.gif"*/);
+					item.setUserData("ID", id);
+					insList.add(item);
+				}
+			}
+			editStatus.setValue("结束导航");
+			waiting.close();
+		};
+
+		function treeAdjust(toID, cls){		
+			var strParams = 'type=adjust' + '&dest=' + toID + '&current=' + cls;  
+			var url = href + '?' + strParams;  
+//			alert(url);
+			var loader1 = new net.ContentLoader(url,null,null,"POST",null);
+		};
+
+		function getClsTrack(id){
+			var strParams = 'type=clsTrack' + '&id=' + id;
+			var url = href + '?' + strParams;
+			var loaderl = new net.ContentLoader(url, setClsTrack, null, "POST", null);
+		};
+	
+		function setClsTrack(){				
+			var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("ID");
+			for(var i=0; i<list.length; i++){
+				statistic.setValue(list[0].firstChild.data);
+			}
+		};
+
+		function getClsStatistic(id){
+			but_static.setEnabled(false);
+			var strParams = 'type=clsStat' + '&id=' + id;			
+			var url = href + '?' + strParams;
+//			alert(url);
+			var loaderl = new net.ContentLoader(url, setClsStatistic, null, "POST", null);
+		};
+
+		function setClsStatistic(){						
+			var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("ID");
+			for(var i=0; i<list.length; i++){
+				srhResult.setValue(list[0].firstChild.data);
+			}
+			but_static.setEnabled(true);
+		};
+
+		function isClsExisted(clsname){
+			var strParams = 'type=clsCheck' + '&clsname=' + clsname;			
+			var url = href + '?' + strParams;
+//			alert(url);
+			var loaderl = new net.ContentLoader(url, ClsExisted, null, "POST", null);
+		};
+
+		function ClsExisted(){	
+			var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("ID");
+			for(var i=0; i<list.length; i++){
+				isExisted = list[0].firstChild.data;
+			}
+		};
+
+		function isInstanceExist(ins){
+			waiting.show();
+			var strParams = 'type=insExist' + '&ins=' + ins;
+			var url = href + '?' + strParams;
+			var loader = new net.ContentLoader(url, getExistedInstance, null, "POST", null);
+		};
+
+		function getExistedInstance(){
+			var text = this.req.responseText;
+			var parser = new DOMParser();
+			text = parser.parseFromString(text, "text/xml");
+			var list = text.getElementsByTagName("Instance");
+			if(list.length == 0)
+				;
+			else{
+				for(var i=0; i<list.length; i++){					
+					var name = list[i].firstChild.data;
+					var id = list[i].getAttribute("ID");
+					var item = new QxListItem(name);
+					item.setUserData("ID", id);
+					insList.add(item);
+					dupInsID = id;
+				}
+
+			}
+			waiting.close();
+		};
+
+		function createDupInstance(clsID, insID){			
+			var strParams = 'type=dupIns' + '&clsID=' + clsID + "&insID=" + insID;
+			var url = href + '?' + strParams;
+			var loader = new net.ContentLoader(url, null, null, "POST", null);
+		};
+
+		function SpecialURLEncode(str, isXML){
+		//%要第一个替换
+			if(str.indexOf('%') != -1)
+				str = str.replace(/\%/g, '%25');
+			if(str.indexOf('+') != -1)
+				str = str.replace(/\+/g, '%2B');
+			/*if(str.indexOf('/') != -1)
+				str = str.replace(/\//g, '%2F');*/
+			if(str.indexOf('?') != -1)
+				str = str.replace(/\?/g, '%3F');
+			if(str.indexOf('#') != -1)
+				str = str.replace(/\#/g, '%23');
+			if(str.indexOf('&') != -1)
+				str = str.replace(/\&/g, '%26');
+			if(str.indexOf('=') != -1)
+				str = str.replace(/\=/g, '%3D');
+			if(isXML){
+				if(str.indexOf('<') != -1)
+					str = str.replace(/\</g, '%26lt;');
+				if(str.indexOf('>') != -1)
+					str = str.replace(/\>/g, '%26gt;');
+			}
+//			alert(str);
+			return str;
+		};
+
+		function onSubmitError(){
+			alert("服务器繁忙！请重新提交或者联系系统管理员");
+		};
+    };
+  </script>
+</body>
+</html>

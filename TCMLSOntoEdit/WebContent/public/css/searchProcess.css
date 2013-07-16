@@ -1,0 +1,142 @@
+	/******************** Top level display *********************/
+	#displayWin #mainWin{
+		width:100%;
+		height:98%;
+		
+		padding:0;
+	}
+	
+	#displayWin #topWin{
+		width:100%;
+		
+		padding: 0;
+		margin: 0;	
+	}
+	
+	#displayWin #leftWin{
+		width:33%;
+		height:100%;
+	}
+	
+	#displayWin #midWin{
+		width:33%;
+		height:100%;
+	}
+		
+	#displayWin #rightWin{
+		width:33%;
+		height:100%;
+	}
+	
+	#displayWin{
+		width:98%;
+		height:98%;
+		
+	}
+	
+	/******************** Second Level display:The three children window *********************/
+	.infPane{
+		padding: 0px;
+		margin: 0px;
+	}
+	
+	
+	.infTitle{
+		width:100%;
+		height:25px;
+		
+		font-weight:bold;
+	
+	}
+	  	
+	.infTitleP{
+		padding: 0;
+		margin: 0;
+	}
+		
+	.infWin{
+		vertical-align:top; 
+		
+		padding: 0;
+		margin: 0;
+	}
+	
+	/****************************** Display table ****************************************/
+	.infTable{
+		padding: 0;
+		margin: 0;
+		
+		width: 100%;
+		
+		background-color:#BFBFBF;
+	}
+	
+	.infTable .infTitleTr{
+		background-color: #94B9EF;
+		height:20px;
+		
+		vertical-align:top;
+	}
+	
+	.infTable tr{
+		height:20px;
+		
+		text-align:center;
+	}
+	
+	.infTable .row0{
+		background-color: white;
+	}
+	
+		.infTable .row1{
+		background-color: #D1E1FB;
+	}
+	 	
+	.infTable th{
+		height:20px;
+		
+		vertical-align:top;
+		text-align:center;
+	}
+	
+	.infTable td{
+		height:20px;
+		
+		vertical-align:top;
+		text-align:center;
+	}
+		
+	/***************** Public parameters ******************************/
+		
+	td.clickInf:hover{
+		color: blue;
+	}
+		
+	td.clickInf{
+		cursor: pointer;
+	}
+	
+	.params{
+		font-weight:bold;
+		color:red;
+	}
+	
+	.resultInf{
+		font-weight:bold;
+		color:blue;
+	}
+	
+	.tabTitle{
+		font-weight:bold;
+	}
+	
+	.relaSearch{
+		text-decoration:underline;
+		cursor:pointer;
+	}
+	
+	span.relaSearch:hover{
+		font-weight:bold;
+		background-color:blue;
+		color:white;
+	}

@@ -1,0 +1,43 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN"
+    "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+
+
+<dwr>
+  <allow>
+    <create creator="new" javascript="JDate">
+    	<param name="class" value="java.util.Date"/>
+    </create>
+    <create creator="new" javascript="Tree">
+    	<param name="class" value="cn.edu.zju.ccnt.TFGW.dwr.Tree"/>
+    </create>
+    <create creator="new" javascript="QueryData">
+    	<param name="class" value="cn.edu.zju.ccnt.TFGW.dwr.QueryData"/>
+    </create>   
+     <create creator="new" javascript="SearchDB">
+    	<param name="class" value="cn.edu.zju.ccnt.TFGW.dwr.SearchDB"/>
+    </create>  
+       
+    <!--  The conf of zhm-->
+   	<create creator="new" javascript="QueryNavigate"
+		scope="session">
+		<param name="class"
+			value="cn.edu.zju.ccnt.dartSS.web.dwr.QueryNavigate" />
+	</create>
+	<create creator="new" javascript="QueryResult"
+		scope="session">
+		<param name="class"
+			value="cn.edu.zju.ccnt.dartSS.web.dwr.QueryResult" />
+	</create>
+	<create creator="new" javascript="SubjectIntroduction"
+		scope="session">
+		<param name="class"
+			value="cn.edu.zju.ccnt.dartSS.web.dwr.SubjectIntroduction" />
+	</create>
+	<create creator="new" javascript="SubjectManagement"
+		scope="session">
+		<param name="class"
+			value="cn.edu.zju.ccnt.dartSS.web.dwr.SubjectManagement" />
+	</create>   
+  </allow>
+</dwr>

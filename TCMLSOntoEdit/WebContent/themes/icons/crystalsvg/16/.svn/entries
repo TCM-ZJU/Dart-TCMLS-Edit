@@ -1,0 +1,1994 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="7"
+   name=""
+   committed-date="2006-09-11T09:44:47.053277Z"
+   url="http://wls.cintcm.com/svn/snomedtcmls/TCMLSOntoEdit/themes/icons/crystalsvg/16"
+   last-author="tmy"
+   kind="dir"
+   uuid="debff3c7-281d-0410-adc5-bd274ee7125b"
+   repos="http://wls.cintcm.com/svn/snomedtcmls"
+   revision="12"/>
+<entry
+   committed-rev="7"
+   name="insert-table-row.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a3047f6b40bfff20c156489583f98d19"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.406000Z"/>
+<entry
+   committed-rev="7"
+   name="control-center.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="03a698f23517765668dfc3fb78b1677a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.421000Z"/>
+<entry
+   committed-rev="7"
+   name="viewmag.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="bd31ad048007b811011471e992332954"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.437000Z"/>
+<entry
+   committed-rev="7"
+   name="cam.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8a34ff4de4b498d1edcad55b3c1b3571"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.468000Z"/>
+<entry
+   committed-rev="7"
+   name="settings.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="00ef1de2044080f4196619c60ab463aa"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.484000Z"/>
+<entry
+   committed-rev="7"
+   name="view-icon.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="acb57b3dcccbbfc227c5fcab1ff8000f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.515000Z"/>
+<entry
+   committed-rev="7"
+   name="cache.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="e0883f352bd863a267f6f5123f05cf45"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.546000Z"/>
+<entry
+   committed-rev="7"
+   name="bookmark.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a4097a1d0a86b285032b1ad7a85f4290"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.562000Z"/>
+<entry
+   committed-rev="7"
+   name="undo.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="981942c87e1356b88abb291a5c19deaa"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.593000Z"/>
+<entry
+   committed-rev="7"
+   name="file-new.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="7a5d8fdb91d6497b9962343c5649868e"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.625000Z"/>
+<entry
+   committed-rev="7"
+   name="memory.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="21b38fe552ff2e1b2500142e3009f421"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.656000Z"/>
+<entry
+   committed-rev="7"
+   name="desktop.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="941278de2204eeeec2084d151b8df026"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.671000Z"/>
+<entry
+   committed-rev="7"
+   name="keyboard-layout.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="d364f6e215d8d2b8dacf543df0be11f1"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.703000Z"/>
+<entry
+   committed-rev="7"
+   name="view-bottom.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="3194481d4647d7240ffa511771792867"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.734000Z"/>
+<entry
+   committed-rev="7"
+   name="bell.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="4642f368b68137d6d74b3762d1b31fc9"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.765000Z"/>
+<entry
+   committed-rev="7"
+   name="Classes.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="9ffc844748a47de5527780a2f62ba01e"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.781000Z"/>
+<entry
+   committed-rev="7"
+   name="mail-delete.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="6308cb6ecf3a56ee02c363f8d1dafea4"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.812000Z"/>
+<entry
+   committed-rev="7"
+   name="printer.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="0d3883b4152d6a7b30728edfa634c579"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.828000Z"/>
+<entry
+   committed-rev="7"
+   name="text-strike.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="2687c977138b46722dcc8470ccf29cb2"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.843000Z"/>
+<entry
+   committed-rev="7"
+   name="exec.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="83f01dcaecff291ddcaf1af6a6825e83"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.875000Z"/>
+<entry
+   committed-rev="7"
+   name="edit.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="fbcb11a571906d79fbb2affa64643fdc"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.890000Z"/>
+<entry
+   committed-rev="7"
+   name="hardware-info.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="6a038c4e7de925bd843741d746c7d7a5"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.906000Z"/>
+<entry
+   committed-rev="7"
+   name="Class.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="41c389737e93e1cda126e78037f55474"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.921000Z"/>
+<entry
+   committed-rev="7"
+   name="delete-table.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="e571423fc185990292b68867a757ca44"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.953000Z"/>
+<entry
+   committed-rev="7"
+   name="camera.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="5b17f8d4a80f6b00cdd6c61e45f975d4"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:29.968000Z"/>
+<entry
+   committed-rev="7"
+   name="calculator.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="7d2ecd8dd7abda1713bdde3cdddd15a6"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.000000Z"/>
+<entry
+   committed-rev="7"
+   name="documentinfo.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="315b49a18c592128876e1acb9117a8f7"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.015000Z"/>
+<entry
+   committed-rev="7"
+   name="contact.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="acd4a8b307e467050b73191fc28b8121"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.031000Z"/>
+<entry
+   committed-rev="7"
+   name="encrypted.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="ff7bf73a3fe9c29b058e2ae90aee2cdb"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.046000Z"/>
+<entry
+   committed-rev="7"
+   name="edit-copy.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c2bb88f8c319e4cc589bfbb4218cbdbb"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.078000Z"/>
+<entry
+   committed-rev="7"
+   name="instant-available.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="53d13919edce60c4467c7fe8ac5cef67"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.093000Z"/>
+<entry
+   committed-rev="7"
+   name="iconthemes.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="238fc5ae36ce39e63f92390673978142"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.125000Z"/>
+<entry
+   committed-rev="7"
+   name="toys.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="5a2745044e9726f20febd839649df034"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.140000Z"/>
+<entry
+   committed-rev="7"
+   name="joystick.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="7bd5008abf9d03fae55758a0e1083547"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.156000Z"/>
+<entry
+   committed-rev="7"
+   name="trashcan-empty.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="b7a727fd541bf32326b8c3ae8a087f33"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.171000Z"/>
+<entry
+   committed-rev="7"
+   name="graphics.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c724a432a5d53de41ca4e811e3ae465a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.203000Z"/>
+<entry
+   committed-rev="7"
+   name="history.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="073d49ed67bbed97fd4d103a95ee48a8"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.218000Z"/>
+<entry
+   committed-rev="7"
+   name="Slot.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="523087180e8abebc9f699b3d3d1d98aa"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.250000Z"/>
+<entry
+   committed-rev="7"
+   name="password.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8a7dd9f6faafb5b1b5ec495fc5264dbb"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.281000Z"/>
+<entry
+   committed-rev="7"
+   name="insert-table-col.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8ffded867adc4f1c0e6d70dfc321e60f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.312000Z"/>
+<entry
+   committed-rev="7"
+   name="attach.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="80bb869883b8c41e49b29a51d1546332"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.343000Z"/>
+<entry
+   committed-rev="7"
+   name="exit.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="21461ccf2cc97a90daf494ca61945a0c"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.375000Z"/>
+<entry
+   committed-rev="7"
+   name="ok.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="aeba7917d2a4aabb3124ef65b79f228b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.406000Z"/>
+<entry
+   committed-rev="7"
+   name="folder-locked.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="dff4a72153caea58acd85fc3364f0454"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.421000Z"/>
+<entry
+   committed-rev="7"
+   name="launch.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="4adf953a854d5224c5b938098d7954be"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.453000Z"/>
+<entry
+   committed-rev="7"
+   name="group-event.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="7649f20e592ba5482554ed0d500dfd01"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.484000Z"/>
+<entry
+   committed-rev="7"
+   name="presentation.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="2c5442563bdabc2a11a616e4fa5a6416"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.515000Z"/>
+<entry
+   committed-rev="7"
+   name="text-sub.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="cf19c8ca28ca2c16857f5f71e8fb86ce"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.531000Z"/>
+<entry
+   committed-rev="7"
+   name="file-open.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="bfc8ae57a072b888688ab5ab941f4c43"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.562000Z"/>
+<entry
+   committed-rev="7"
+   name="instant-away.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="573bae08ff9c8374e4d82c9960493534"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.593000Z"/>
+<entry
+   committed-rev="7"
+   name="configure.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="cd15beffe7f0df5f0f2c5c071e2c81d4"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.609000Z"/>
+<entry
+   committed-rev="7"
+   name="font-size-down.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a59ed5511026c5a1564282b60dd5b718"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.625000Z"/>
+<entry
+   committed-rev="7"
+   name="decrypted.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="0fd1533907d81878740a5feaf8eed498"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.656000Z"/>
+<entry
+   committed-rev="7"
+   name="services.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="758eaa37e724007785aea2ae65bd0138"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.671000Z"/>
+<entry
+   committed-rev="7"
+   name="antivirus.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="24d6df516036626d1aef46019335b99b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.687000Z"/>
+<entry
+   committed-rev="7"
+   name="text-top.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="b0e86c95e60b84899cfb723afc9b6ece"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.718000Z"/>
+<entry
+   committed-rev="7"
+   name="stop.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="dcb44ee7f256d726b96881c7082dca16"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.734000Z"/>
+<entry
+   committed-rev="7"
+   name="themes.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="f594bd3deeb3b0c3c185c6b78f276104"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.750000Z"/>
+<entry
+   committed-rev="7"
+   name="email.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="f7bb15166a1ce5fc57b98185c4aada41"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.781000Z"/>
+<entry
+   committed-rev="7"
+   name="accessibility.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="b5da48a0c5168f80a2e96363f579aa6f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.796000Z"/>
+<entry
+   committed-rev="7"
+   name="sound.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8895f64fc730468524794a6854b7caa7"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.828000Z"/>
+<entry
+   committed-rev="7"
+   name="fonts.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="2abc735fe44a90447c4fbe5613a67a97"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.843000Z"/>
+<entry
+   committed-rev="7"
+   name="error.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="6d35e1dbe349a902146192e71d94c3d8"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.859000Z"/>
+<entry
+   committed-rev="7"
+   name="appearance.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="4cbb5c9e2394f193c2d7a0df85ffed8e"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.890000Z"/>
+<entry
+   committed-rev="7"
+   name="mail-find.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="0be3395397a493b10e8cef1884e7fc78"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.906000Z"/>
+<entry
+   committed-rev="7"
+   name="modem.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="6e323536931e20900e6be7c359a51583"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.921000Z"/>
+<entry
+   committed-rev="7"
+   name="viewmag-original.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="fff4a1292b6bef9e83f56e70c8f768d9"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.953000Z"/>
+<entry
+   committed-rev="7"
+   name="down.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="eb059ff842563be8b42ade29f71732b5"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:30.968000Z"/>
+<entry
+   committed-rev="7"
+   name="harddrive.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="dc53de13abffbcd1fc7a497e10a27169"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.000000Z"/>
+<entry
+   committed-rev="7"
+   name="Instances.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c787ff406d29853a2c3e417e94e59e01"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.031000Z"/>
+<entry
+   committed-rev="7"
+   name="file-print.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="be51ae33ee29c513b6a284ded53a7701"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.062000Z"/>
+<entry
+   committed-rev="7"
+   name="mail-new.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="93067ae2501d126e737f82c3568929fa"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.093000Z"/>
+<entry
+   committed-rev="7"
+   name="char-device.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="91867e6f0dd7a9ce79ede594b8b34aff"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.125000Z"/>
+<entry
+   committed-rev="7"
+   name="folder.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="123b30adf22efff8db5361efc8f6f1ba"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.140000Z"/>
+<entry
+   committed-rev="7"
+   name="tablet.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="e8650ccb0b38bdcb0f315786d4073a21"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.171000Z"/>
+<entry
+   committed-rev="7"
+   name="wordprocessor.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="9063075aa8dafc872fe8d9a92a287b8c"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.203000Z"/>
+<entry
+   committed-rev="7"
+   name="emoticon.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="2777bb93d9745b8fc1396228cc6edf04"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.234000Z"/>
+<entry
+   committed-rev="7"
+   name="date.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="b4cf83e72991e33b94e0b0bd9e9d8036"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.265000Z"/>
+<entry
+   committed-rev="7"
+   name="edit-cut.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="22cdc3df4718cd0be6b5ce8d2f97ed9e"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.281000Z"/>
+<entry
+   committed-rev="7"
+   name="funct.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="b8000590759b2024399eba773bdbd259"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.296000Z"/>
+<entry
+   committed-rev="7"
+   name="format-decrease-indent.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="819196ce1cb726e339a42808c787dd18"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.328000Z"/>
+<entry
+   committed-rev="7"
+   name="outbox.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="59f38cafe09bd337bfb79bc46222c3c3"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.343000Z"/>
+<entry
+   committed-rev="7"
+   name="button-ok.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="aeba7917d2a4aabb3124ef65b79f228b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.375000Z"/>
+<entry
+   committed-rev="7"
+   name="view-detailed.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="05d2b9b544ca3f9a6ff7a92ea59d73e5"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.390000Z"/>
+<entry
+   committed-rev="7"
+   name="mail-forward.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="113d6a9722b9bd7823c92c47af096212"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.421000Z"/>
+<entry
+   committed-rev="7"
+   name="queue.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="81d4f4f3e2bdc58e210f4f6bbfde6c2a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.437000Z"/>
+<entry
+   committed-rev="7"
+   name="history-clear.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c2c6e2708811ea5683adabb9420b9e52"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.453000Z"/>
+<entry
+   committed-rev="7"
+   name="help.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="4a1cb9e1de0ef1323f2860145f722851"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.484000Z"/>
+<entry
+   committed-rev="7"
+   name="notes.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8b3fbe70e911063b906b2cdb5bf1ed08"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.500000Z"/>
+<entry
+   committed-rev="7"
+   name="flowchart.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="7017781f443fb91bb17700e5cdf16d3d"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.515000Z"/>
+<entry
+   committed-rev="7"
+   name="energy.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="545b8505283f17b11aaa48eddc905353"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.546000Z"/>
+<entry
+   committed-rev="7"
+   name="scanner.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="63c32027f540f926310298b384566ec1"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.562000Z"/>
+<entry
+   committed-rev="7"
+   name="multimedia.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="94232e124fb507ca059689892fac5bbd"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.578000Z"/>
+<entry
+   committed-rev="7"
+   name="delete-table-row.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c414b225aae60fd0e864cb7b93e83d6e"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.609000Z"/>
+<entry
+   committed-rev="7"
+   name="tip.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a6bb51d9ece42cb4755ab9e81ef229d2"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.625000Z"/>
+<entry
+   committed-rev="7"
+   name="contents.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="785f4df3c8d0df07ce5c9b238f4b287c"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.656000Z"/>
+<entry
+   committed-rev="7"
+   name="pipe.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c62a0cb635d2b0e01eda4856f729cb93"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.671000Z"/>
+<entry
+   committed-rev="7"
+   name="appointment.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="00ba08035a536ea6635c0aec8879a19d"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.687000Z"/>
+<entry
+   committed-rev="7"
+   name="font-size-up.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="6c43b38c557751098715aa75dc71f7cd"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.718000Z"/>
+<entry
+   committed-rev="7"
+   name="Thumbs.db"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="268b82889d738fe07524a0b2394c39be"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-12T01:41:32.000000Z"/>
+<entry
+   committed-rev="7"
+   name="cdrom.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="828f8133c48fabec40379672b820e09a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.843000Z"/>
+<entry
+   committed-rev="7"
+   name="run.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a6450b844f25f6c4645da40ed45b2205"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.875000Z"/>
+<entry
+   committed-rev="7"
+   name="floppy.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="296f79f4c3b542c7f565b87e4ac02e3d"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.906000Z"/>
+<entry
+   committed-rev="7"
+   name="flag.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8fda524b0cdaa56b953bedaed29b23a3"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.937000Z"/>
+<entry
+   committed-rev="7"
+   name="mail-reply.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="7b1d23eb6fbed80ff52aff1bcb6221df"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.953000Z"/>
+<entry
+   committed-rev="7"
+   name="babelfish.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="d37e70eda89de1bf6aead614818dc1c9"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:31.984000Z"/>
+<entry
+   committed-rev="7"
+   name="mail-reply-all.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="928eb39fee27aebbf90fb0136b70fcce"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.000000Z"/>
+<entry
+   committed-rev="7"
+   name="vectorgraphics.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="92e7ae9d783a59df69c98bb4bd8fe371"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.031000Z"/>
+<entry
+   committed-rev="7"
+   name="up.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="57d8d34470b18f8a4555748e4e41a7fa"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.046000Z"/>
+<entry
+   committed-rev="7"
+   name="text-bottom.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="90d948205020a2003c3bba826a50d736"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.078000Z"/>
+<entry
+   committed-rev="7"
+   name="view-choose.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="1aad2fed67d330b1c1e6ae0fc81236c0"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.093000Z"/>
+<entry
+   committed-rev="7"
+   name="alarm.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="6a261a67afa29341c968f6327347d42e"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.109000Z"/>
+<entry
+   committed-rev="7"
+   name="partitions.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="3010c7ae68bf6af2e45b67324581e227"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.140000Z"/>
+<entry
+   committed-rev="7"
+   name="button-cancel.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="b60a68d548057f854b6b2425480f7d7c"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.156000Z"/>
+<entry
+   committed-rev="7"
+   name="rotate.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="dc8937796fc4afa9d93a41d78c038a9f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.171000Z"/>
+<entry
+   committed-rev="7"
+   name="mail-get.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="239d4476bd66ca824e52e3a06dba2cff"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.203000Z"/>
+<entry
+   committed-rev="7"
+   name="mac.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="d3cea42cc4142ca6ecf5fe7be1728562"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.218000Z"/>
+<entry
+   committed-rev="7"
+   name="chart.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c8514579e9d4dd141b86f79a4ecae255"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.234000Z"/>
+<entry
+   committed-rev="7"
+   name="idea.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="d6fb95cf8ea78358269cf218d4e18598"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.265000Z"/>
+<entry
+   committed-rev="7"
+   name="favorites.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c8b564c4ad7131c0a706c174f5d4c93e"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.281000Z"/>
+<entry
+   committed-rev="7"
+   name="delete-table-col.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="611d6f55a145c7e31e4fa6a34c86b56a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.296000Z"/>
+<entry
+   committed-rev="7"
+   name="favourite.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="f6b196fc3ee140b5427778f6d8d5eb72"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.328000Z"/>
+<entry
+   committed-rev="7"
+   name="bookmark-toolbar.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="666491c65cfa68aee660f603a7e8bed0"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.375000Z"/>
+<entry
+   committed-rev="7"
+   name="penguin.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="0595f1d691c33a45916fb3cb60f300da"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.406000Z"/>
+<entry
+   committed-rev="7"
+   name="search.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="bd31ad048007b811011471e992332954"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.421000Z"/>
+<entry
+   committed-rev="7"
+   name="reload.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="88c59621a2e631329630a936218f2506"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.437000Z"/>
+<entry
+   committed-rev="7"
+   name="goto.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="f004a7190f267ab782bde448cbd07d64"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.468000Z"/>
+<entry
+   committed-rev="7"
+   name="context-help.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="1a0b34068485bb11ec2a126647ecaedf"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.500000Z"/>
+<entry
+   committed-rev="7"
+   name="file-save.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="ecbbb0e7b08907bf58a5438c95682b26"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.546000Z"/>
+<entry
+   committed-rev="7"
+   name="no.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="22d03e849b10a339974c476d564e565f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.578000Z"/>
+<entry
+   committed-rev="7"
+   name="important.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="bdc9326ddb8a8c40d44b555549294aa0"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.593000Z"/>
+<entry
+   committed-rev="7"
+   name="look-and-feel.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="d86cd799fa6877c65e423ee33a1ba5c4"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.625000Z"/>
+<entry
+   committed-rev="7"
+   name="bookmark-folder.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="435a2c1f94cdf35b5e3ff72fa473ae91"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.656000Z"/>
+<entry
+   committed-rev="7"
+   name="viewmag-plus.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="0e01aa509e06095112c2395fc3fa7770"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.703000Z"/>
+<entry
+   committed-rev="7"
+   name="apply.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="aeba7917d2a4aabb3124ef65b79f228b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.734000Z"/>
+<entry
+   committed-rev="7"
+   name="file-manager.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="726f64b98de8c9eb8720701dd20a30e7"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.765000Z"/>
+<entry
+   committed-rev="7"
+   name="folder-favorite.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="bb12d3a6033ad4f4ec9553f837b0cb49"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.781000Z"/>
+<entry
+   committed-rev="7"
+   name="redo.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a02f4d41b4197d4d65fa02e8e829e1ec"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.796000Z"/>
+<entry
+   committed-rev="7"
+   name="clock.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8b8bd9b763226275caf1964de06cc64f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.828000Z"/>
+<entry
+   committed-rev="7"
+   name="misc.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a6450b844f25f6c4645da40ed45b2205"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.843000Z"/>
+<entry
+   committed-rev="7"
+   name="package.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="30d1348eeb1101759b287b01eb447e63"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.875000Z"/>
+<entry
+   committed-rev="7"
+   name="movieplayer.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="32d38e6cd575bf4997ca4bcda107f31e"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.890000Z"/>
+<entry
+   committed-rev="7"
+   name="file-find.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="6eacfd42e86b5e0694c66fe1068f0d39"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.921000Z"/>
+<entry
+   committed-rev="7"
+   name="remove-comment.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="0856d6731ae40f51805290a565602d97"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.937000Z"/>
+<entry
+   committed-rev="7"
+   name="edit-paste.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="25d067d994296ff872067feba039dd71"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.953000Z"/>
+<entry
+   committed-rev="7"
+   name="text-color.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a07844083b57f4ff7a6a12880618c3d2"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:32.984000Z"/>
+<entry
+   committed-rev="7"
+   name="wizard.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="7f7a3baf395e48b371b1bd81556c5c9d"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.000000Z"/>
+<entry
+   committed-rev="7"
+   name="magnifier.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="9543c9b053eb7fd6bd2364e558284839"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.031000Z"/>
+<entry
+   committed-rev="7"
+   name="signature.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c1cd12462f22512978703af7ad5390db"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.046000Z"/>
+<entry
+   committed-rev="7"
+   name="fileshare.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="1ebf6647ece76a64007eaa1d46884d98"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.078000Z"/>
+<entry
+   committed-rev="7"
+   name="connect-no.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="5d09fb1828b77513377b2340dbb92130"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.093000Z"/>
+<entry
+   committed-rev="7"
+   name="trashcan-full.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="30d2099f94bab903d3dc244c86628160"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.109000Z"/>
+<entry
+   committed-rev="7"
+   name="pda.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="6aa669b33d8d29750017024ee137da25"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.125000Z"/>
+<entry
+   committed-rev="7"
+   name="dictionary.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a830c2934ebe2c66617de8ef1068f603"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.156000Z"/>
+<entry
+   committed-rev="7"
+   name="display.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="bdb2252f063c0be4ec073b2ed564bbe7"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.171000Z"/>
+<entry
+   committed-rev="7"
+   name="insert-table-cell.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="bfda994fff12e3995704e820bd6db31a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.203000Z"/>
+<entry
+   committed-rev="7"
+   name="mail-send.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="b27fb9d7b828f42a8a9baed5dbc55c76"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.234000Z"/>
+<entry
+   committed-rev="7"
+   name="icons.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="bcf2fb404dff6a5ba0aea46b3dd2eb30"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.265000Z"/>
+<entry
+   committed-rev="7"
+   name="view-sidetree.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="89fd20435dc7f4d4453c9c45b0287496"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.296000Z"/>
+<entry
+   committed-rev="7"
+   name="connect-established.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="46cfd34e5009334352d2db7c7014fcf4"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.468000Z"/>
+<entry
+   committed-rev="7"
+   name="inbox.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="836c93470aa5790b434f69b60f8a1b06"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.500000Z"/>
+<entry
+   committed-rev="7"
+   name="text-super.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="52fd4f3e045c13cac2f7885cad20df14"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.515000Z"/>
+<entry
+   committed-rev="7"
+   name="devices.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c8ec92a3cdffb9fabbdb4255fc88dbac"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.531000Z"/>
+<entry
+   committed-rev="7"
+   name="delete.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c6030eca60efbf338061555cbc18a4c5"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.562000Z"/>
+<entry
+   committed-rev="7"
+   name="thumbnail.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="23f7c18a94d10e78632c8d47af311acc"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.750000Z"/>
+<entry
+   committed-rev="7"
+   name="system.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="215735f7748d02da10c81c23d3df6b10"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.765000Z"/>
+<entry
+   committed-rev="7"
+   name="Instance.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="ded3080f7b16dddc672b09b3fd0a269b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.796000Z"/>
+<entry
+   committed-rev="7"
+   name="folder-important.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c5db95460fa94e3f549451050cddbe0b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.828000Z"/>
+<entry
+   committed-rev="7"
+   name="core.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="392e42e1191c78b823b4ad28b21ffaaa"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.843000Z"/>
+<entry
+   committed-rev="7"
+   name="insert-table.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="5be7cf427a05f90ed29a34488b5168ab"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.875000Z"/>
+<entry
+   committed-rev="7"
+   name="network.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="9ea85a416afd92b578f464d8a70fcffd"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.890000Z"/>
+<entry
+   committed-rev="7"
+   name="info.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="44c0a14c136bdf3f7363df791bc1753b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.921000Z"/>
+<entry
+   committed-rev="7"
+   name="games.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="1dc5b52f1399ca960e7c3fd3365863b9"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.953000Z"/>
+<entry
+   committed-rev="7"
+   name="bitmapgraphics.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="67890016b3ccfded4e7851f8d4e23566"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:33.984000Z"/>
+<entry
+   committed-rev="7"
+   name="format-increase-indent.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="24ea81f4e5482f96e36d75b67267bc6e"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.000000Z"/>
+<entry
+   committed-rev="7"
+   name="locale.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="346654bfe446ee584e695850d0957049"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.031000Z"/>
+<entry
+   committed-rev="7"
+   name="color-fill.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="fcf59b63679fe27011ae31c919a8c085"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.062000Z"/>
+<entry
+   committed-rev="7"
+   name="color-line.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c55853ed1547ff7b7ac2e9d34e4d2f3d"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.093000Z"/>
+<entry
+   committed-rev="7"
+   name="database.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="f1f55dc975a065a8ad9c8b677d098f12"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.125000Z"/>
+<entry
+   committed-rev="7"
+   name="delete-table-cell.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="3927f13e62bdff4a924a12a9dbea9b9b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.156000Z"/>
+<entry
+   committed-rev="7"
+   name="server.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="228388fd340db74b77407ca0a19d34c8"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.171000Z"/>
+<entry
+   committed-rev="7"
+   name="cookie.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="d3805c9815eab837e086dde88704438d"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.203000Z"/>
+<entry
+   committed-rev="7"
+   name="terminal.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="da2b55cbaf0cab238900b72a2578bfc9"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.218000Z"/>
+<entry
+   committed-rev="7"
+   name="bug.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="4905888b0354c6e08f946cac2707995d"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.250000Z"/>
+<entry
+   committed-rev="7"
+   name="find.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="839693ce4356daaac6286f6d5db1da9c"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.265000Z"/>
+<entry
+   committed-rev="7"
+   name="mail.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="3384d520bc6234c7c601f31e3285e566"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.312000Z"/>
+<entry
+   committed-rev="7"
+   name="connect-creating.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="6ccab815330149ed46e3ddfdad90b47a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.343000Z"/>
+<entry
+   committed-rev="7"
+   name="waiting.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="546c3d1ee78276c066183b60ee4d1f5f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.390000Z"/>
+<entry
+   committed-rev="7"
+   name="cancel.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="22d03e849b10a339974c476d564e565f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.421000Z"/>
+<entry
+   committed-rev="7"
+   name="editor.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="37c2e28356d401ffc148b91f3fb9c8ac"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.437000Z"/>
+<entry
+   committed-rev="7"
+   name="mouse.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="fdd23b2cb07bac06f5b4cfc585192529"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.453000Z"/>
+<entry
+   committed-rev="7"
+   name="tv.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="dcb199e2a5029e1eba9eeb2e810e5062"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.515000Z"/>
+<entry
+   committed-rev="7"
+   name="view-text.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="aa4f42af0e349ed085a0f0f467f7083a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.531000Z"/>
+<entry
+   committed-rev="7"
+   name="hardware.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="1a6bce7e2d74742a1a6def6c75802482"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.546000Z"/>
+<entry
+   committed-rev="7"
+   name="back.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="76f8ed9a532f23f24a6dbde292c9b457"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.593000Z"/>
+<entry
+   committed-rev="7"
+   name="organizer.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="d7ed7f89f9163d54327c0b885f759c78"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.625000Z"/>
+<entry
+   committed-rev="7"
+   name="style.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="1484caa7ada22dbabfdafeef76fac09c"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.656000Z"/>
+<entry
+   committed-rev="7"
+   name="colors.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a860e838f1fccb1a4530f59517c7bcbf"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.687000Z"/>
+<entry
+   committed-rev="7"
+   name="comment.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="adcfc8619f1116051d34cde3d20008b8"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.718000Z"/>
+<entry
+   committed-rev="7"
+   name="console.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="4a395cf645d9f23196a9b4f7734a1353"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.734000Z"/>
+<entry
+   committed-rev="7"
+   name="forward.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="5a9544dc5d1b53c275c95ea4eb2f14c9"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.765000Z"/>
+<entry
+   committed-rev="7"
+   name="help-center.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="3786507aca56b21804dae376583ad6b8"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.796000Z"/>
+<entry
+   committed-rev="7"
+   name="3d.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="971be0b6d340ecdb2b8fb266e9762648"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.828000Z"/>
+<entry
+   committed-rev="7"
+   name="folder-open.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="b94c179975e6bbd9a320dea6ecc7b7ae"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.859000Z"/>
+<entry
+   committed-rev="7"
+   name="paint.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="366b3926498d8bc6102876a7fa053570"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.890000Z"/>
+<entry
+   committed-rev="7"
+   name="utilities.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="acf64ada0b56d66aa77c1fbfadd8b7c4"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.921000Z"/>
+<entry
+   committed-rev="7"
+   name="file-save-as.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="fbde0308fe8dbf2a1b2074e718d9f77b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.937000Z"/>
+<entry
+   committed-rev="7"
+   name="spellcheck.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="5ca8f98735fed7cb5ddd52609bf5507c"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.953000Z"/>
+<entry
+   committed-rev="7"
+   name="user.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="5d0f482dd2d27424f3a859c384174ff1"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:34.984000Z"/>
+<entry
+   committed-rev="7"
+   name="viewmag-fit.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="986fb3fbe56d5218f5b0111a6c60ff82"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.000000Z"/>
+<entry
+   committed-rev="7"
+   name="tux.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="8d3bfef8a243cfd62e5d0d649a0103f1"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.031000Z"/>
+<entry
+   committed-rev="7"
+   name="view-multicolumn.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="54e203ce20177223b1ad3fed534d18b7"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.046000Z"/>
+<entry
+   committed-rev="7"
+   name="trash.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="e9a05b4001ada82c570288174041c448"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.062000Z"/>
+<entry
+   committed-rev="7"
+   name="edit-delete.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="dca1c7777fb94ce4ad4daf90a367f781"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.093000Z"/>
+<entry
+   committed-rev="7"
+   name="applications.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="1fef401cf87332a4b14be6c9f6bf535a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.109000Z"/>
+<entry
+   committed-rev="7"
+   name="mousecursor.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="239e85bef653ecde07abeafe19700206"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.125000Z"/>
+<entry
+   committed-rev="7"
+   name="block-device.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c637b9f8a23d8a5cd354fec07b80d9a0"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.156000Z"/>
+<entry
+   committed-rev="7"
+   name="home.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="a6f951b13a6a502f3e70df8f9e9689b6"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.171000Z"/>
+<entry
+   committed-rev="7"
+   name="viewmag-minus.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="5aeec48179871e63d955ef284d4f7714"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.187000Z"/>
+<entry
+   committed-rev="7"
+   name="bookmark-add.png"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="de19c914886b44a87dd89b559ceb3c48"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:35.218000Z"/>
+</wc-entries>

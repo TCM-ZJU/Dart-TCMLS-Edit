@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo
+END
+OpenAjax.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/OpenAjax.js
+END
+string.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/string.js
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/LICENSE
+END
+cookie.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/cookie.js
+END
+_base.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/_base.js
+END
+jaxer.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/jaxer.js
+END
+AdapterRegistry.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/AdapterRegistry.js
+END
+DeferredList.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/DeferredList.js
+END
+dojo.js.uncompressed.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/dojo.js.uncompressed.js
+END
+date.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/date.js
+END
+fx.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/fx.js
+END
+i18n.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/i18n.js
+END
+number.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/number.js
+END
+regexp.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/regexp.js
+END
+currency.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/currency.js
+END
+dojo.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/dojo.js
+END
+parser.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/parser.js
+END
+NodeList-fx.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/NodeList-fx.js
+END
+behavior.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/behavior.js
+END
+back.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/back.js
+END
+colors.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/colors.js
+END
+build.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/build.txt
+END
+tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests.js
+END

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional
+END
+curry.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/curry.js
+END
+fold.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/fold.js
+END
+scan.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/scan.js
+END
+object.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/object.js
+END
+sequence.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/sequence.js
+END
+listcomp.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/listcomp.js
+END
+array.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/array.js
+END
+reversed.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/reversed.js
+END
+lambda.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/lambda.js
+END
+zip.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojox/lang/functional/zip.js
+END

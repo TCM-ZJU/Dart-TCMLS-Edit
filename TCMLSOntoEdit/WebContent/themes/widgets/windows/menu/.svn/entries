@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="7"
+   name=""
+   committed-date="2006-09-11T09:44:47.053277Z"
+   url="http://wls.cintcm.com/svn/snomedtcmls/TCMLSOntoEdit/themes/widgets/windows/menu"
+   last-author="tmy"
+   kind="dir"
+   uuid="debff3c7-281d-0410-adc5-bd274ee7125b"
+   repos="http://wls.cintcm.com/svn/snomedtcmls"
+   revision="12"/>
+<entry
+   committed-rev="7"
+   name="Thumbs.db"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="c3483d328396d33e7d624e56dbfaf293"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-12T01:41:28.000000Z"/>
+<entry
+   committed-rev="7"
+   name="checkbox.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="888eab2467fba62805e0699ee5f50e49"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:26.609000Z"/>
+<entry
+   committed-rev="7"
+   name="radiobutton.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="e26fbd36ea65eae821ae0ba9ff306a14"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:26.625000Z"/>
+</wc-entries>

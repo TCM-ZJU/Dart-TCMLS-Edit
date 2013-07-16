@@ -1,0 +1,2 @@
+checker&editor没有修改
+需要在函数isInstanceExist中添加waiting.show();&waiting.close();

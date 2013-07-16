@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<searchResource>
+	<JMZ_JB>
+		<tabName type="string">JMZ_JB</tabName>
+		<dbName type="string">突发公卫信息</dbName>
+		<searchInf type="string">疾病名称</searchInf>   
+		<searchAttr type="string">JBMC</searchAttr>      
+		<id type="string">JB_ID</id>                 
+		
+		<element type="string" display="false" length="short">
+			<attrTitle>疾病ID</attrTitle>
+			<attrName>JB_ID</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>疾病名称</attrTitle>
+			<attrName>JBMC</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>症状</attrTitle>
+			<attrName>ZZ</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>症候</attrTitle>
+			<attrName>ZH</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>原发病</attrTitle>
+			<attrName>YFB</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>并发症</attrTitle>
+			<attrName>BFZ</attrName>
+		</element>
+	</JMZ_JB>
+	
+	<C_JIB>
+		<tabName type="string">C_JIB</tabName>
+		<dbName type="string">中医基础疾病</dbName>
+		<searchInf type="string">疾病名称</searchInf>   
+		<searchAttr type="string">JBMC</searchAttr>   
+		<id type="string">ID</id>
+		
+		<element type="string" display="false" length="short">
+			<attrTitle>ID</attrTitle>
+			<attrName>ID</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>疾病名称</attrTitle>
+			<attrName>JBMC</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>异名</attrTitle>
+			<attrName>YM</attrName>
+		</element>
+		<element type="string" display="true" length="short">
+			<attrTitle>发病方式</attrTitle>
+			<attrName>FBFS</attrName>
+		</element>
+		<element type="string" display="true" length="short">
+			<attrTitle>原发病</attrTitle>
+			<attrName>YFB</attrName>
+		</element>
+		<element type="string" display="true" length="short">
+			<attrTitle>并发症</attrTitle>
+			<attrName>BFZ</attrName>
+		</element>
+		<element type="string" display="true" length="short">
+			<attrTitle>症状名称</attrTitle>
+			<attrName>ZZMC</attrName>
+		</element>
+		<element type="string" display="true" length="short">
+			<attrTitle>备注</attrTitle>
+			<attrName>BZ</attrName>
+		</element>
+	</C_JIB>
+	
+	<ZDFZ>
+		<tabName type="string">TFGW_ZDFZ</tabName>
+		<dbName type="string">中毒防治信息</dbName>
+		<searchInf type="string">疾病名称</searchInf>   
+		<searchAttr type="string">JIBMC</searchAttr>   
+		<id type="string">ID</id>
+		
+		<element type="string" display="false" length="short">
+			<attrTitle>ID</attrTitle>
+			<attrName>ID</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>疾病名称</attrTitle>
+			<attrName>JIBMC</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>中毒物</attrTitle>
+			<attrName>ZHONGDW</attrName>
+		</element>
+		<element type="string" display="true" length="long">
+			<attrTitle>发病原因</attrTitle>
+			<attrName>FABYY</attrName>
+		</element>
+		<element type="string" display="true" length="long">
+			<attrTitle>诊断</attrTitle>
+			<attrName>ZHEND</attrName>
+		</element>
+		<element type="string" display="true" length="long">
+			<attrTitle>症状与体征</attrTitle>
+			<attrName>ZHENGZYTZ</attrName>
+		</element>
+		<element type="string" display="true" length="short">
+			<attrTitle>中毒分类</attrTitle>
+			<attrName>ZHONGDFL</attrName>
+		</element>
+		
+		<element type="clob" display="true">
+			<attrTitle>预防与控制</attrTitle>
+			<attrName>YUFYKZ</attrName>
+		</element>
+		
+		<element type="clob" display="true">
+			<attrTitle>治疗</attrTitle>
+			<attrName>ZHIL</attrName>
+		</element>
+	</ZDFZ>
+	
+	<ZYBFZ>
+		<tabName type="string">TFGW_ZYBFZ</tabName>
+		<dbName type="string">职业病信息</dbName>
+		<searchInf type="string">疾病名称</searchInf>
+		<searchAttr type="string">JIBMC</searchAttr>    
+		<id type="string">ID</id>
+		
+		<element type="string" display="false" length="short">
+			<attrTitle>ID</attrTitle>
+			<attrName>ID</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>疾病名称</attrTitle>
+			<attrName>JIBMC</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>文题</attrTitle>
+			<attrName>WENT</attrName>
+		</element>
+		
+		
+		<element type="clob" display="true" length="short">
+			<attrTitle>发病原因</attrTitle>
+			<attrName>FABYY</attrName>
+		</element>
+		<element type="clob" display="true" length="short">
+			<attrTitle>预防与控制</attrTitle>
+			<attrName>YUFYKZ</attrName>
+		</element>
+		<element type="clob" display="true" length="short">
+			<attrTitle>诊断</attrTitle>
+			<attrName>ZHEND</attrName>
+		</element>
+		<element type="clob" display="true" length="short">
+			<attrTitle>治疗</attrTitle>
+			<attrName>ZHIL</attrName>
+		</element>		
+		<element type="clob" display="true" length="short">
+			<attrTitle>症状与体征</attrTitle>
+			<attrName>ZHENGZYTZ</attrName>
+		</element>
+	</ZYBFZ>
+	
+	<YJYA>
+		<tabName type="string">TFGW_YJYA</tabName>
+		<dbName type="string">应急预案</dbName>
+		<searchInf type="string">疾病名称</searchInf>   
+		<searchAttr type="string">JIBMC</searchAttr> 
+		<id type="string">ID</id>
+		
+		<element type="string" display="false" length="short">
+			<attrTitle>ID</attrTitle>
+			<attrName>ID</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>疾病名称</attrTitle>
+			<attrName>JIBMC</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>文题</attrTitle>
+			<attrName>WENT</attrName>
+		</element>
+		
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>发病日期</attrTitle>
+			<attrName>FABRQ</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>症状体征</attrTitle>
+			<attrName>ZHANGZTZ</attrName>
+		</element>
+		
+		<element type="clob" display="true" length="short">
+			<attrTitle>发病原因</attrTitle>
+			<attrName>FABYY</attrName>
+		</element>		
+		<element type="clob" display="true" length="short">
+			<attrTitle>应急救治</attrTitle>
+			<attrName>YINGJJZ</attrName>
+		</element>
+		<element type="clob" display="true" length="short">
+			<attrTitle>预防与控制</attrTitle>
+			<attrName>YUFYKZ</attrName>
+		</element>
+	</YJYA>
+	
+	<ZYBZZLBZ>
+		<tabName type="string">ZYBZZLBZ</tabName>
+		<dbName type="string">中医病症诊疗标准</dbName>
+		<searchInf type="string">病证名称</searchInf>   
+		<searchAttr type="string">BINGZMC</searchAttr> 
+		<id type="string">ID</id>
+		
+		<element type="string" display="false" length="short">
+			<attrTitle>ID</attrTitle>
+			<attrName>ID</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>病证名称</attrTitle>
+			<attrName>BINGZMC</attrName>
+		</element>
+		
+		<element type="string" display="true" length="long">
+			<attrTitle>中医分科</attrTitle>
+			<attrName>ZHONGYFK</attrName>
+		</element>
+		
+		<element type="string" display="true" length="long">
+			<attrTitle>病因病机</attrTitle>
+			<attrName>BINGYBJ</attrName>
+		</element>
+		
+		<element type="string" display="true" length="long">
+			<attrTitle>诊断依据</attrTitle>
+			<attrName>ZHENDYJ</attrName>
+		</element>
+		
+		<element type="string" display="true" length="long">
+			<attrTitle>症候分类</attrTitle>
+			<attrName>ZHENGHFL</attrName>
+		</element>
+		
+		<element type="string" display="true" length="long">
+			<attrTitle>疗效评定-治愈</attrTitle>
+			<attrName>LXPD_ZY</attrName>
+		</element>		
+		
+		<element type="string" display="true" length="long">
+			<attrTitle>疗效评定-好转</attrTitle>
+			<attrName>LXPD_HZ</attrName>
+		</element>
+		<element type="string" display="true" length="long">
+			<attrTitle>疗效评定-未愈</attrTitle>
+			<attrName>LXPD_WY</attrName>
+		</element>
+	</ZYBZZLBZ>
+	
+	<ZCFG>
+		<tabName type="string">TFGW_ZCFG</tabName>
+		<dbName type="string">突发公卫政策法规</dbName>
+		<searchInf type="string">疫病名称</searchInf>   
+		<searchAttr type="string">YIBMC</searchAttr> 
+		<id type="string">ID</id>
+		
+		<element type="string" display="false" length="short">
+			<attrTitle>ID</attrTitle>
+			<attrName>ID</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>疫病名称</attrTitle>
+			<attrName>YIBMC</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>发病日期</attrTitle>
+			<attrName>FABRQ</attrName>
+		</element>	
+		
+		<element type="string" display="true" length="normal">
+			<attrTitle>文题</attrTitle>
+			<attrName>WENT</attrName>
+		</element>
+		
+		<element type="clob" display="true" length="long">
+			<attrTitle>内容</attrTitle>
+			<attrName>NEIR</attrName>
+		</element>
+		
+		<element type="string" display="true" length="long">
+			<attrTitle>批准文号</attrTitle>
+			<attrName>PIZWH</attrName>
+		</element>
+		
+		<element type="string" display="true" length="long">
+			<attrTitle>批准机构</attrTitle>
+			<attrName>PIZJG</attrName>
+		</element>
+			
+	</ZCFG>	
+	
+	<expert>
+		<tabName type="string">BJWSZY_RENYUAN</tabName>
+		<dbName type="string">北京名医专家</dbName>
+		<searchInf type="string">专家姓名</searchInf>   
+		<searchAttr type="string">ID</searchAttr> 
+		<id type="string">ID</id>
+		
+		<element type="string" display="false" length="short">
+			<attrTitle>ID</attrTitle>
+			<attrName>ID</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>姓名</attrTitle>
+			<attrName>XINGM</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>所属医院</attrTitle>
+			<attrName>SUOSYY</attrName>
+		</element>
+		
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>科室</attrTitle>
+			<attrName>SUOZKS</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>职称</attrTitle>
+			<attrName>ZHIC</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>门诊时间</attrTitle>
+			<attrName>MENZSJ</attrName>
+		</element>		
+		<element type="string" display="true" length="short">
+			<attrTitle>主治疾病</attrTitle>
+			<attrName>ZHUZJB</attrName>
+		</element>
+		<element type="clob" display="true" length="short">
+			<attrTitle>专家介绍</attrTitle>
+			<attrName>ZHUANJJS</attrName>
+		</element>
+	</expert>
+	
+	<hospital>
+		<tabName type="string">BJWSZY_YIYUAN</tabName>
+		<dbName type="string">北京医院信息</dbName>
+		<searchInf type="string">医院名称</searchInf>   
+		<searchAttr type="string">ID</searchAttr> 
+		<id type="string">ID</id>
+		
+		<element type="string" display="false" length="short">
+			<attrTitle>ID</attrTitle>
+			<attrName>ID</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>医院名</attrTitle>
+			<attrName>YIYMC</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>地址</attrTitle>
+			<attrName>YIYDZ</attrName>
+		</element>
+		
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>电话</attrTitle>
+			<attrName>LIANXDH</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>床位</attrTitle>
+			<attrName>CHUANGWS</attrName>
+		</element>
+		
+		<element type="string" display="true" length="short">
+			<attrTitle>门诊量</attrTitle>
+			<attrName>RIMZL</attrName>
+		</element>		
+		<element type="string" display="true" length="short">
+			<attrTitle>医院等级</attrTitle>
+			<attrName>YIYDJ</attrName>
+		</element>
+		<element type="string" display="true">
+			<attrTitle>院长</attrTitle>
+			<attrName>YUANZ</attrName>
+		</element>
+		<element type="string" display="true">
+			<attrTitle>特色专科</attrTitle>
+			<attrName>TESZK</attrName>
+		</element>
+		<element type="string" display="true">
+			<attrTitle>网址</attrTitle>
+			<attrName>WANGZ</attrName>
+		</element>
+		<element type="clob" display="true">
+			<attrTitle>医院介绍</attrTitle>
+			<attrName>YIYJS</attrName>
+		</element>
+	</hospital>
+	
+	<element type="number">
+			<attrTitle></attrTitle>
+			<attrName></attrName>
+		</element>
+		
+		<element type="clob">
+			<attrTitle></attrTitle>
+			<attrName></attrName>
+		</element>
+</searchResource>

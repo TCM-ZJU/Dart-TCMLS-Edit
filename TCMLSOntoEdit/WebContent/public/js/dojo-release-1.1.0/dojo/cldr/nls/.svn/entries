@@ -1,0 +1,193 @@
+10
+
+dir
+42
+http://192.168.0.48/svn/tfgwproject/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/cldr/nls
+http://192.168.0.48/svn/tfgwproject
+
+
+
+2008-12-02T08:06:09.552600Z
+20
+zxg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+432df78e-95d9-45b7-a6f9-d016ce01799b
+
+zh-cn
+dir
+
+zh
+dir
+
+pt
+dir
+
+ko-kr
+dir
+
+en-ca
+dir
+
+pt-br
+dir
+
+it-it
+dir
+
+en-us
+dir
+
+de
+dir
+
+en-gb
+dir
+
+gregorian.js
+file
+
+
+
+
+2011-05-02T02:20:37.849362Z
+6a0d5cfed2a452a337a86e0ac7d4f6ac
+2008-12-02T08:06:09.552600Z
+20
+zxg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1826
+
+ja
+dir
+
+ja-jp
+dir
+
+en
+dir
+
+number.js
+file
+
+
+
+
+2011-05-02T02:20:37.850862Z
+90fd9ce9f7d7e693077e96baec931590
+2008-12-02T08:06:09.552600Z
+20
+zxg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+648
+
+en-au
+dir
+
+currency.js
+file
+
+
+
+
+2011-05-02T02:20:37.851862Z
+1db263ba9b0e1623c288a3654dfb5867
+2008-12-02T08:06:09.552600Z
+20
+zxg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+177
+
+fr
+dir
+
+es
+dir
+
+ko
+dir
+
+zh-tw
+dir
+
+it
+dir
+
+es-es
+dir
+
+de-de
+dir
+

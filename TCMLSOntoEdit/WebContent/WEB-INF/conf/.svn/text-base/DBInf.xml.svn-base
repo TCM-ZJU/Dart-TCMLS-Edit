@@ -1,0 +1,54 @@
+<dataInf>
+	<diseaseInf>
+		<tabNum type="number"></tabNum>
+		<diseaseNum type="number"></diseaseNum>
+		<tableInf>
+			<tableName type="string"></tableName>
+			<diseaseNum type="number"></diseaseNum>
+		</tableInf>
+	 </diseaseInf>
+	 
+	 <expertInf>
+	 	<expertNum type="number"></expertNum>
+	 	<currentNum type="number"></currentNum>
+	 	<expert>
+	 		<expertID type="string"></expertID>
+	 		<expertName type="string"></expertName>
+	 		<correlation type="number"></correlation>
+	 	</expert>
+	 </expertInf>
+	 
+	 <hospitalInf>
+	 	<hospitalNum type="number"></hospitalNum>
+	 	<currentNum type="number"></currentNum>
+	 	<hospital>
+	 		<hospitalID type="string"></hospitalID>
+	 		<hospitalName type="string"></hospitalName>
+	 		<correlation type="number"></correlation>
+	 	</hospital>
+	 </hospitalInf>
+ </dataInf>
+ 
+ <diseaseData>
+	<disease>
+		<name type="string"></name>
+		<correlation type="number"></correlation>
+	</disease>
+</diseaseData>
+
+
+<disease>
+	<element type="string" length="short">
+		<name></name>
+		<value></value>
+	</element>
+	
+	<element type="number">
+		<name></name>
+		<value></value>
+	</element>
+	
+	<element type="clob">
+		<name></name>
+	</element>
+</disease>

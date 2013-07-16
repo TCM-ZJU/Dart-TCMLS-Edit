@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="C_JIBDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_jibDAO">
+	</bean>
+	<bean id="C_ZHENHDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_ZHENHDAO">
+	</bean>	
+	<bean id="C_ZYBYDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_ZYBYDAO">
+	</bean>	
+	<bean id="C_XYBYDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_XYBYDAO">
+	</bean>	
+	<bean id="C_ZYZLDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_ZYZLDAO">
+	</bean>	
+	<bean id="C_AMZLDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_AMZLDAO">
+	</bean>	
+	<bean id="C_ZGZLDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_ZGZLDAO">
+	</bean>	
+	<bean id="C_ZJZLDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_ZJZLDAO">
+	</bean>	
+	<bean id="C_XYZLDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_XYZLDAO">
+	</bean>	
+	<bean id="C_QTZLDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jib.C_QTZLDAO">
+	</bean>	
+	<bean id="JMZ_JBDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.jmz.JMZ_JBDAO">
+	</bean>
+	<bean id="ZDFZDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.ZDFZDAO">
+	</bean>
+	<bean id="ZYBFZDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.ZYBFZDAO">
+	</bean>
+	<bean id="ZCFGDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.ZCFGDAO">
+	</bean>	
+	<bean id="YJYADAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.YJYADAO">
+	</bean>		
+	<bean id="ZYBZZLBZDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.ZYBZZLBZDAO">
+	</bean>	
+	<bean id="ExpertDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.ExpertDAO">
+	</bean>		
+	<bean id="HospitalDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.HospitalDAO">
+	</bean>	
+	<bean id="ZTC_TREEDAO"
+	 class="cn.edu.zju.ccnt.TFGW.DAO.ZTC_TREEDAO">
+	</bean>		
+</beans>

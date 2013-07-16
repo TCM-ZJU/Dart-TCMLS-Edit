@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="7"
+   name=""
+   committed-date="2006-09-11T09:44:47.053277Z"
+   url="http://wls.cintcm.com/svn/snomedtcmls/TCMLSOntoEdit/themes/widgets/windows/tree"
+   last-author="tmy"
+   kind="dir"
+   uuid="debff3c7-281d-0410-adc5-bd274ee7125b"
+   repos="http://wls.cintcm.com/svn/snomedtcmls"
+   revision="12"/>
+<entry
+   committed-rev="7"
+   name="minus.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="f3e8fb5f0530e63a85a34293cc9fd809"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:24.859000Z"/>
+<entry
+   committed-rev="7"
+   name="cross_plus.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="3d708ada035aff4363bb07afe611b0d5"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:24.875000Z"/>
+<entry
+   committed-rev="7"
+   name="end_minus.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="e9c170b014359495e95148f9996bc582"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:24.890000Z"/>
+<entry
+   committed-rev="7"
+   name="Thumbs.db"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="69219f41287726a2c23134b682143d5a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-12T01:41:26.000000Z"/>
+<entry
+   committed-rev="7"
+   name="plus.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="950be3b8d2091b9d686bca92f3ac6d21"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:24.937000Z"/>
+<entry
+   committed-rev="7"
+   name="cross_minus.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="0c31b73eb966a2dff891ee3288c5665a"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:24.953000Z"/>
+<entry
+   committed-rev="7"
+   name="end.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="2e2a065551ece4f81f9887ca0cf9e3d2"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:24.984000Z"/>
+<entry
+   committed-rev="7"
+   name="line.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="e0d01e2fe3b874e66e54cecb6809013c"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:25.000000Z"/>
+<entry
+   committed-rev="7"
+   name="cross.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="2b8b1aef39f0e73edb0d70d9f97e651d"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:25.015000Z"/>
+<entry
+   committed-rev="7"
+   name="end_plus.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="9ec51d30fc9dbbd7122faa3c6c0cf6e4"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:25.046000Z"/>
+</wc-entries>

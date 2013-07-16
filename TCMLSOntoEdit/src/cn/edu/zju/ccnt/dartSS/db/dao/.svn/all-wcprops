@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao
+END
+ZlfaDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/ZlfaDAO.java
+END
+DiseaseDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/DiseaseDAO.java
+END
+UserDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/UserDAO.java
+END
+YflfDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/YflfDAO.java
+END
+LcyjDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/LcyjDAO.java
+END
+ZhDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/ZhDAO.java
+END
+LczzDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/LczzDAO.java
+END
+XylfDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/XylfDAO.java
+END
+LczlDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/LczlDAO.java
+END
+Dss_subjectDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/Dss_subjectDAO.java
+END
+SubjectTablesDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/tfgwproject/!svn/ver/17/trunk/TFGWProject2/src/cn/edu/zju/ccnt/dartSS/db/dao/SubjectTablesDAO.java
+END

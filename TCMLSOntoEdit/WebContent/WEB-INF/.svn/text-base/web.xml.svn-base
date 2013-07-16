@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>navagator.jsp</welcome-file>
+		
+	</welcome-file-list>
+
+	<!-- log4j 配置-->
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>TFGWProject.root</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/log4j.properties</param-value>
+	</context-param>
+	
+	<!-- DWR 控制 -->	
+ 	<servlet>
+    	<servlet-name>dwr-invoker</servlet-name>
+    	<display-name>DWR Servlet</display-name>
+    	<servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+    	<init-param>
+     		<param-name>debug</param-name>
+     		<param-value>true</param-value>
+  		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+	  <servlet-name>dwr-invoker</servlet-name>
+	  <url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>JMZDiseaseQuery</servlet-name>
+		<servlet-class>
+		cn.edu.zju.ccnt.dartSS.web.servlet.JMZDiseaseQuery</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>JMZDiseaseQuery</servlet-name>
+		<url-pattern>/Disease/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>showImage</servlet-name>
+		<servlet-class>
+			cn.edu.zju.ccnt.dartSS.web.servlet.ShowImage
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>showImage</servlet-name>
+		<url-pattern>*.pic</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 
+	Spring Listener 
+	<listener>
+ 		<listener-class>
+    		org.springframework.web.context.ContextLoaderListener
+ 		</listener-class>
+	</listener>	
+	Sring 配置文件设置 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring.xml</param-value>
+	</context-param>
+	-->
+		
+</web-app>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>	
+   <bean id="TCMLS" class="cn.edu.zju.ccnt.tcmls.web.TCMLSController">
+   </bean>  
+   <bean id="LOGIN" class="cn.edu.zju.ccnt.tcmls.web.LoginController">	   
+   </bean>
+   
+   <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">        
+		<property name="mappings">            
+			<props>     
+				<prop key="/tcmls.jspa">TCMLS</prop>
+				<prop key="/login.jspa">LOGIN</prop>
+			</props>        
+		</property>  
+	</bean>
+</beans>

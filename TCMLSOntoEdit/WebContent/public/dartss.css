@@ -1,0 +1,100 @@
+/*declare the style of the body*/
+body { /*font: 9pt STXIHEI; color:#0000FF; margin: 0px 0px 0px 0px;*/
+	font: 10pt verdana;
+	color: #0000FF;
+	margin: 0px 0px 0px 0px;
+}
+
+.branch {
+	cursor: pointer;
+	cursor: hand;
+	display: block;
+	margin-left: 0px;
+	color: #0000FF;
+}
+
+/*.branch:hover{ 
+text-decoration: underline; 
+}
+*/
+.leaf:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+.leaf {
+	margin-left: 0px;
+	color: #0000FF;
+}
+
+a {
+	color: #FF0000;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.NavBarCell1 {
+	background-color: #EEEEFF;
+}  /* Light mauve */
+.NavBarFont1 {
+	color: #000000;
+}
+
+.NavBarCell1Rev { /*background-color:#00008B;*/
+	background-color: #FF9326;
+}  /* Dark Blue */
+.NavBarFont1Rev {
+	color: #FFFFFF;
+}
+
+.imageIcon {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.navigateHint {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.navigateHint:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+.treeFrame {
+	overflow-y: scroll;
+	overflow-x: scroll;
+	width: 240px;
+	height: 600px
+}
+
+.mainFrame {
+	overflow-y: scroll;
+	height: 600px
+}
+
+.pageHint {
+	cursor: pointer;
+	cursor: hand;
+	color: #FF0000;
+}
+
+.pageHint:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+.navigateLink {
+	color: #149239;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.navigateLink:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}

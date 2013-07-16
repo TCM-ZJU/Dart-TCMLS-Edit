@@ -1,0 +1,3 @@
+function getData(dbName, searchCount, searchType, num)
+
+searchType = enum{"frist","last","prev","next","num"}

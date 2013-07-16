@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd
+END
+test_box_constraints.html
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_box_constraints.html
+END
+test_parent_constraints.html
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_parent_constraints.html
+END
+test_selector.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_selector.html
+END
+test_container.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_container.html
+END
+test_params.html
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_params.html
+END
+test_moveable.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_moveable.html
+END
+flickr_viewer.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/flickr_viewer.html
+END
+test_selector_markup.html
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_selector_markup.html
+END
+dndDefault.css
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/dndDefault.css
+END
+dndDefault.css.commented.css
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/dndDefault.css.commented.css
+END
+test_parent_constraints_margins.html
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_parent_constraints_margins.html
+END
+test_container_markup.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_container_markup.html
+END
+test_custom_constraints.html
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_custom_constraints.html
+END
+test_dnd_handles.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_dnd_handles.html
+END
+test_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_form.html
+END
+test_dnd.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_dnd.html
+END
+test_moveable_markup.html
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_moveable_markup.html
+END
+test_timed_moveable.html
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/dnd/test_timed_moveable.html
+END

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="7"
+   name=""
+   committed-date="2006-09-11T09:44:47.053277Z"
+   url="http://wls.cintcm.com/svn/snomedtcmls/TCMLSOntoEdit/script"
+   last-author="tmy"
+   kind="dir"
+   uuid="debff3c7-281d-0410-adc5-bd274ee7125b"
+   repos="http://wls.cintcm.com/svn/snomedtcmls"
+   revision="12"/>
+<entry
+   committed-rev="27"
+   name="net.js"
+   text-time="2006-09-14T05:27:32.937000Z"
+   committed-date="2006-09-19T05:44:32.300000Z"
+   checksum="133c48d449e82e9ffa0fdef950f37ba6"
+   last-author="tmy"
+   kind="file"
+   revision="27"/>
+<entry
+   committed-rev="7"
+   name="qooxdoo.js"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="b6c191ed40f926011abd81b4b4751211"
+   last-author="tmy"
+   kind="file"/>
+<entry
+   committed-rev="39"
+   name="calendar.js"
+   text-time="2007-03-30T01:52:26.015625Z"
+   committed-date="2007-04-12T10:04:47.014721Z"
+   checksum="71a976112020f0146948dfe6a5e509b0"
+   last-author="tmy"
+   kind="file"
+   revision="39"/>
+<entry
+   committed-rev="39"
+   name="calendar.html"
+   text-time="2007-03-29T16:13:19.078125Z"
+   committed-date="2007-04-12T10:04:47.014721Z"
+   checksum="496d0458a2e5885d5d9712bb2198deb6"
+   last-author="tmy"
+   kind="file"
+   revision="39"/>
+</wc-entries>

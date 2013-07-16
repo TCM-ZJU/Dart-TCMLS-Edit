@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tfgwproject/!svn/ver/40/trunk/TFGWProject2/WEB-INF/conf/dataResource
+END
+introduction.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/tfgwproject/!svn/ver/40/trunk/TFGWProject2/WEB-INF/conf/dataResource/introduction.xml
+END
+infResource.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/tfgwproject/!svn/ver/37/trunk/TFGWProject2/WEB-INF/conf/dataResource/infResource.xml
+END
+searchResource.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/tfgwproject/!svn/ver/37/trunk/TFGWProject2/WEB-INF/conf/dataResource/searchResource.xml
+END

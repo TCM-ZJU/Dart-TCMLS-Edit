@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/_base/_loader
+END
+addLoadEvents.html
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/_base/_loader/addLoadEvents.html
+END
+hostenv_rhino.js
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/_base/_loader/hostenv_rhino.js
+END
+afterOnLoad.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/_base/_loader/afterOnLoad.html
+END
+loader.js
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/_base/_loader/loader.js
+END
+getText.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/_base/_loader/getText.txt
+END
+hostenv_browser.js
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/_base/_loader/hostenv_browser.js
+END
+bootstrap.js
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/_base/_loader/bootstrap.js
+END
+hostenv_spidermonkey.js
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/tfgwproject/!svn/ver/20/trunk/TFGWProject2/public/js/dojo-release-1.1.0/dojo/tests/_base/_loader/hostenv_spidermonkey.js
+END

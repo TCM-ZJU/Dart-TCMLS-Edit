@@ -1,0 +1,121 @@
+/*The layout*/
+div#mainDiv{
+	width:100%;
+	height:1000px;
+	
+	min-height:500px;
+	min-width:1000px;
+	margin: 0; 
+	padding: 0; 
+	}
+
+div#titleDiv{
+	width:100%;
+	height: 45px;
+	
+	padding: 0;
+	margin: 0;
+	}
+	
+div#leftDiv{
+	width:280px;
+	height:100%;
+	
+	max-width:350px;
+	min-width:150px;
+	padding: 0;
+	margin: 0;
+	}
+
+div#rightDiv{
+	min-width:600px;
+	margin: 0 0 0 0;
+	}
+	
+body{
+	cursor:default;
+}
+
+/*------------------------------------Left Window-----------------------------------*/
+#leftWin table{
+	margin: 10px;
+	
+	cursor:default;
+}
+
+#leftWin th{
+	list-style-type:none;
+	text-align:left;
+		
+	cursor:default;
+}
+
+#leftWin td{
+	list-style-type:none;
+	marker-offset:20px;
+	border: 2px;	
+	
+	cursor:hand;
+}
+
+#leftWin a:hover{
+	font-weight:bold;
+	
+	color:white;
+}
+
+#leftWin a{
+	text-decoration : none;
+	color : black;/*#900b09;*/
+	
+	background : transparent; 
+}
+
+
+/*the display of whole window*/
+
+/*The title*/
+
+/*The tree*/
+
+img{
+	padding: 0px;
+	margin: 0px;
+	
+	wdith:18px;
+	height:18px;
+}
+
+.nodeOperator{
+	cursor: pointer;
+}
+
+.treeLeaves{
+	cursor: pointer;
+}
+
+.treeLeaves:hover{
+	color:blue;
+	text-decoration: underline;
+}
+	
+.infPane div{
+	white-space:nowrap;	
+	
+}
+
+.rootImage{
+
+}
+
+/*The navigation window(left window)*/
+	/* ----------------------------------- navfirst -----------------------------------*/
+
+/*The display of the tree*/
+.continent{
+	color:red;	
+}
+
+.Europe{
+	color:blue;
+}

@@ -1,0 +1,136 @@
+body {
+	font: 10pt verdana;
+	background-color : #E3F9F9;
+	color: black;
+	margin: 0px 0px 0px 0px;
+}
+
+div{
+	white-space: nowrap;
+}
+
+pre{ 
+	width:100%;  
+	word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+	white-space : normal ; /* Internet Explorer 5.5+ */ 
+}
+
+.dataInfRow{
+	font-style: ºÚÌå£»
+}
+
+.infTable{
+	width : 100%;
+	
+	border-width : 3px;
+	border-style : ridge;
+	border-color : blue;
+}
+
+.infTable caption{
+	font-size : 18px;
+	font-weight : bold;
+}
+
+.infTable th{
+	font-size : 14px;
+	font-weight : bold;
+	background-color : #3F80E2;
+	
+	width : 100px;
+}
+
+.infTable td{
+	font-size : 14px;
+	valign : top;
+}
+
+.infTable expertTd{
+	align : center;
+}
+
+.trEven{
+	background-color : white;
+}
+
+.trOdd{
+	background-color : #98E1E7;
+}
+
+.clobChecker{
+	cursor : hand;
+}
+
+.PromoTabs {
+	padding-left: 10px;
+	padding-top: 5px;
+	overflow: hidden;
+	height: 28px;
+	background-repeat: repeat-x;
+	background-position: 0 0;
+	background-image: url(../images/Tabbg.gif);
+}
+
+.PromoTabs li {
+	float: left;
+	width: 78px;
+	line-height: 28px;
+	/*background: url(../images/mid_tab_unchecked_bg.gif) no-repeat 0 0;*/
+}
+
+.PromoTabs a:hover{
+	font-weight : bold;
+}
+ 
+.PromoTabs li.Current{
+	background: url(../images/mid_tab_checked_bg.gif) no-repeat 0 0;
+}
+
+.PromoTabs li a {
+	font-weight: normal;
+	font-size: 12px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	line-height: normal;
+	height: 18px;
+	padding: 9px 0 1px;
+	color: black;
+	text-decoration: none;
+	hide-focus: expression(this.hideFocus=true);
+	outline: none;
+}
+
+
+.PromoTabs li.Current a {
+	padding: 10px 0 0;
+/*	font-weight: bold ;*/
+}
+
+.PromoTabs {
+	margin: 0px;
+	padding: 0px;
+}
+
+#jmzFrame{
+	min-width : 1000px;
+	width : 100%;
+	height : 100%;
+	frameborder : 1;
+}
+
+#lableBtns{
+	height : 30px;
+}
+
+#mainTable{
+	min-width : 1000px;
+	width : 100%;
+	height : 100%;
+}
+
+#ctrlTab{
+	align : left;
+	height : 20px;
+}
+

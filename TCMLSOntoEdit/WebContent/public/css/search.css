@@ -1,0 +1,55 @@
+body {
+	font: 10pt verdana;
+	color: black;
+	background-color : #E3F9F9;
+	margin: 0px 0px 0px 0px;
+}
+
+div{
+	white-space: nowrap;
+}
+
+td{
+	font-size: 14px;
+}
+
+.ctrlBtn{
+	display: inline;
+	width: 50px;
+	cursor: hand;
+}
+
+.DBNameImage {
+	cursor: hand;
+}
+
+/*The leaves of the navigation trees*/
+.treeLeaves {
+	margin-left: 0px;
+	color: black;
+	font-weight: normal;
+	
+	cursor:hand;
+	text-decoration: none;
+}
+
+/*The node text style of trees*/
+.treeNodes{	
+}
+
+/*The image before node*/
+.nodeOperator{
+	cursor: hand;
+}
+
+#diseaseTab a{
+	color : blue;
+	text-decoration : none;
+	font-size : 15px;
+}
+
+#diseaseTab a:hover{
+	text-decoration : underline;
+	
+	font-weight : bold;
+}

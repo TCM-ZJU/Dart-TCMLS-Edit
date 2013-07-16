@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="7"
+   name=""
+   committed-date="2006-09-11T09:44:47.053277Z"
+   url="http://wls.cintcm.com/svn/snomedtcmls/TCMLSOntoEdit/src/cn/edu/zju/ccnt/tcmls/web"
+   last-author="tmy"
+   kind="dir"
+   uuid="debff3c7-281d-0410-adc5-bd274ee7125b"
+   repos="http://wls.cintcm.com/svn/snomedtcmls"
+   revision="12"/>
+<entry
+   committed-rev="39"
+   name="TCMLSController.java"
+   text-time="2007-04-02T13:46:18.500000Z"
+   committed-date="2007-04-12T10:04:47.014721Z"
+   checksum="c6b5989777e61ceabd96692f418f1a42"
+   last-author="tmy"
+   kind="file"
+   revision="39"/>
+<entry
+   committed-rev="39"
+   name="LoginController.java"
+   text-time="2007-03-27T02:01:27.968750Z"
+   committed-date="2007-04-12T10:04:47.014721Z"
+   checksum="fbf27a3e87d4d0dc82e20c5a7f87907f"
+   last-author="tmy"
+   kind="file"
+   revision="39"/>
+</wc-entries>

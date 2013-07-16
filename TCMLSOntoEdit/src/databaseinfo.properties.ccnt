@@ -1,0 +1,5 @@
+driverClassName=oracle.jdbc.xa.client.OracleXADataSource
+url=jdbc:oracle:thin:@10.214.33.111:1521:tcm
+username=tcm
+password=tcm
+

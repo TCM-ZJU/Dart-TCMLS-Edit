@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="7"
+   name=""
+   committed-date="2006-09-11T09:44:47.053277Z"
+   url="http://wls.cintcm.com/svn/snomedtcmls/TCMLSOntoEdit/themes/widgets/windows/cursors"
+   last-author="tmy"
+   kind="dir"
+   uuid="debff3c7-281d-0410-adc5-bd274ee7125b"
+   repos="http://wls.cintcm.com/svn/snomedtcmls"
+   revision="12"/>
+<entry
+   committed-rev="7"
+   name="nodrop.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="1f16d1a7bed4f2e2c8d31f9584b8af71"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:25.953000Z"/>
+<entry
+   committed-rev="7"
+   name="Thumbs.db"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="795da72b540d3190a482b519aa78d51f"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-12T01:41:26.000000Z"/>
+<entry
+   committed-rev="7"
+   name="move.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="13a3e542dfb458ce6a356e6cd73f6f3d"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:25.984000Z"/>
+<entry
+   committed-rev="7"
+   name="alias.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="bc679bb5814444b654d40b27e9adbd3b"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:26.015000Z"/>
+<entry
+   committed-rev="7"
+   name="copy.gif"
+   text-time="2006-09-11T09:44:47.053000Z"
+   committed-date="2006-09-11T09:44:47.053277Z"
+   checksum="89461bccdf75bca02d1acbfc2dd479ab"
+   last-author="tmy"
+   kind="file"
+   prop-time="2006-09-11T10:41:26.031000Z"/>
+</wc-entries>
